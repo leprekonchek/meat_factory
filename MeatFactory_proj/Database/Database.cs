@@ -14,48 +14,88 @@ namespace MeatFactory_proj.Database
 
         SqlConnection connection = new SqlConnection(Properties.Settings.Default.MeatFactoryConnectionString);
 
-        void deleteSmth(Product product)
+        #region Examples
+
+        void insertSmth(Product product)
         {
             try
             {
-                if (connection == null)
-                {
-                    throw new Exception("Connection String is Null");
-                }
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+
+                connection.Open();
+                SqlCommand query = new SqlCommand(
+                    "INSERT INTO table_name (Name, column2, ..) " + // which columns
+                    "VALUES 'gosha', value2, ..", // which values
+                    connection);
+
+                query.ExecuteNonQuery();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+        }
+
+        // пока надо разобраться с этим
+        void updateSmth(Product product)
+        {
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
 
                 connection.Open();
 
                 SqlCommand query = new SqlCommand(
-                    "DELETE FROM Products " +
-                    "WHERE Name = '" + product.Name + "'",
+                    "UPDATE table_name " +
+                    $"SET column1 = '{product.Name}', ..." + // here are columns and values which to update, list all columns (!)
+                    $"WHERE Barcode = '{product.Barcode}'",
                     connection);
-                query.ExecuteNonQuery();
 
+                query.ExecuteNonQuery();
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
             finally { connection?.Close(); }
+        }
 
+        void deleteSmth(/*Product product*/ String name)
+        {
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+
+                connection.Open();
+
+                /*SqlCommand query = new SqlCommand(
+                    "DELETE FROM table_name " +
+                    "WHERE Name = '" + product.Name + "'",
+                    connection);*/
+
+                SqlCommand query = new SqlCommand(
+                    "DELETE FROM table_name " +
+                    $"WHERE Name = '{name}'",
+                    /*$"WHERE Age = {age}",*/
+                    connection);
+
+                query.ExecuteNonQuery();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
         }
 
         void selectSmth()
         {
             try
             {
-                if (connection == null)
-                {
-                    throw new Exception("Connection String is Null");
-                }
+                if (connection == null) { throw new Exception("Connection String is Null"); }
 
                 connection.Open();
 
                 SqlCommand query = new SqlCommand(
-                    "SELECT Name_contr FROM Contractor"
-                    , connection);
+                    "SELECT Name_contr FROM Contractor",
+                    connection);
 
                 SqlDataReader reader = query.ExecuteReader();
                 while (reader.Read())
                 {
-                    //ListContractors.Add(reader["Name_contr"].ToString().Trim(' '));
+                    // there add things to list
                 }
 
                 reader.Close();
@@ -64,15 +104,17 @@ namespace MeatFactory_proj.Database
             finally { connection?.Close(); }
         }
 
+
+        #endregion
+
+        #region SelectAll
+
         public List<Product> selectAllProducts()
         {
             List<Product> products = new List<Product>();
             try
             {
-                if (connection == null)
-                {
-                    throw new Exception("Connection String is Null");
-                }
+                if (connection == null) { throw new Exception("Connection String is Null"); }
 
                 connection.Open();
 
@@ -142,7 +184,7 @@ namespace MeatFactory_proj.Database
 
             return buyers;
         }
-        
+
         public List<Component> selectAllComponents()
         {
             List<Component> components = new List<Component>();
@@ -153,7 +195,7 @@ namespace MeatFactory_proj.Database
                 connection.Open();
 
                 SqlCommand query = new SqlCommand(
-                    "SELECT * FROM Buyer",
+                    "SELECT * FROM Component",
                     connection);
 
                 SqlDataReader reader = query.ExecuteReader();
@@ -166,8 +208,7 @@ namespace MeatFactory_proj.Database
                         Type = reader.GetString(2),
                         Quantity = reader.GetString(3),
                         Price = reader.GetString(4),
-                        IsPackage = reader.GetBoolean(5),
-
+                        IsPackage = reader.GetBoolean(5)
                     };
                     components.Add(component);
                 }
@@ -178,7 +219,7 @@ namespace MeatFactory_proj.Database
             finally { connection?.Close(); }
 
             return components;
-        
+
         }
 
         public List<Provisioner> selectAllProvisioners()
@@ -191,7 +232,7 @@ namespace MeatFactory_proj.Database
                 connection.Open();
 
                 SqlCommand query = new SqlCommand(
-                    "SELECT * FROM Buyer",
+                    "SELECT * FROM Provisioner",
                     connection);
 
                 SqlDataReader reader = query.ExecuteReader();
@@ -202,12 +243,11 @@ namespace MeatFactory_proj.Database
                         EDRPOU = reader.GetString(0),
                         Name = reader.GetString(1),
                         Phone = reader.GetString(2),
-                        IsLegal =  reader.GetBoolean(3),
+                        IsLegal = reader.GetBoolean(3),
                         Street = reader.GetString(4),
                         BuildingNumber = reader.GetString(5),
                         Town = reader.GetString(6),
-                        PostCode = reader.GetString(7),
-
+                        PostCode = reader.GetString(7)
                     };
                     provisioners.Add(provisioner);
                 }
@@ -230,20 +270,18 @@ namespace MeatFactory_proj.Database
                 connection.Open();
 
                 SqlCommand query = new SqlCommand(
-                    "SELECT * FROM Buyer",
+                    "SELECT * FROM Transport",
                     connection);
 
                 SqlDataReader reader = query.ExecuteReader();
-                while (reader.Read()) 
+                while (reader.Read())
                 {
                     Transport transport = new Transport
                     {
                         AutoNumber = reader.GetString(0),
                         Type = reader.GetString(1),
                         PriceOfPetrol = reader.GetString(2),
-                        Driver = reader.GetString(3),
-                        
-
+                        Driver = reader.GetString(3)
                     };
                     transports.Add(transport);
                 }
@@ -255,6 +293,83 @@ namespace MeatFactory_proj.Database
 
             return transports;
         }
+        #endregion
 
+        #region User
+
+        public bool userExists(String login)
+        {
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+                connection.Open();
+
+                SqlCommand query = new SqlCommand(
+                    "SELECT COUNT(*) " +
+                    "FROM User " +
+                    $"WHERE Login='{login}'",
+                connection);
+                int count = (int)query.ExecuteScalar();
+                return count == 1;
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+            return false;
+        }
+
+        public User getUser(string login)
+        {
+            User user = new User();
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+                connection.Open();
+
+                SqlCommand query = new SqlCommand($"SELECT * " +
+                                                  $"FROM User " +
+                                                  $"WHERE Login = '{login}'", connection);
+
+                SqlDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    user = new User
+                    {
+                        Login = reader.GetString(0),
+                        Password = reader.GetString(1)
+                    };
+                }
+
+                reader.Close();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+
+            return user;
+        }
+
+        public String getPassword(string login)
+        {
+            String password = "";
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+                connection.Open();
+
+                SqlCommand query = new SqlCommand($"SELECT Password " +
+                                                  $"FROM User " +
+                                                  $"WHERE Login = '{login}'", connection);
+
+                SqlDataReader reader = query.ExecuteReader();
+                while (reader.Read()) { password = reader.GetString(0); }
+
+                reader.Close();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+
+            return password;
+        }
+
+        #endregion
     }
 }

@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="MeatFactory_proj.Views.SignInView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MeatFactory_proj.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="Login:" TextAlignment="Center" Margin="253,6,9.667,6"/>
+        <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="Password:" TextAlignment="Center" Margin="275,5,9.667,5"/>
+        <PasswordBox Grid.Row="4" Grid.Column="3" Name="PasswordBox"></PasswordBox>
+
+        <Button Background="Azure" Grid.Row="6" Grid.Column="3" Content="Sign In" Command="{Binding SigInCommand}" Margin="102.667,10,114,140" Grid.RowSpan="2"/>
+    </Grid>
+</UserControl>

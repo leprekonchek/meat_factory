@@ -1,4 +1,6 @@
-﻿using MeatFactory_proj.Database;
+﻿using System.Windows.Controls;
+using MeatFactory_proj.Database;
+using MeatFactory_proj.Models;
 
 namespace MeatFactory_proj.Tools.Managers
 {
@@ -7,5 +9,9 @@ namespace MeatFactory_proj.Tools.Managers
         private static IDataStorage _dataStorage = new Database.Database();
 
         public static IDataStorage DataStorage => _dataStorage;
+
+        public static PasswordBox Password { get; set; }
+
+        public static User CurrentUser { get; set; }
     }
 }
