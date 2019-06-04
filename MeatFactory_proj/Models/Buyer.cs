@@ -10,6 +10,9 @@
         public string BuildingNumber { get; set; }
         public string Town { get; set; }
         public string PostCode { get; set; }
+<<<<<<< HEAD
         // hi
+=======
+>>>>>>> 773d740748585f905b8ef1c5e2f5749f4562a112
     }
 }
