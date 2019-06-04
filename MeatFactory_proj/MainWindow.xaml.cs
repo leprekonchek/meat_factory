@@ -10,7 +10,7 @@ namespace MeatFactory_proj
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ProductsVM();
+            DataContext = new MainViewModel();
             NavigationManager.Instance.Initialize(new InitNavigationModel(this));
             NavigationManager.Instance.Navigate(ViewType.StartView);
         }
