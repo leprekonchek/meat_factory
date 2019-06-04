@@ -1,28 +1,12 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows;
-using MeatFactory_proj.Tools;
-using MeatFactory_proj.Tools.Managers;
 
 namespace MeatFactory_proj.ViewModels
 {
-    internal class MainViewModel : INotifyPropertyChanged, ILoaderOwner
+    internal class MainViewModel : INotifyPropertyChanged
     {
-        #region Fields
-        private Visibility _loaderVisibility = Visibility.Hidden;
         private bool _isControlEnabled = true;
-        #endregion
 
-        #region Properties
-        public Visibility LoaderVisibility
-        {
-            get => _loaderVisibility;
-            set
-            {
-                _loaderVisibility = value;
-                OnPropertyChanged();
-            }
-        }
         public bool IsControlEnabled
         {
             get => _isControlEnabled;
@@ -32,11 +16,10 @@ namespace MeatFactory_proj.ViewModels
                 OnPropertyChanged();
             }
         }
-        #endregion
 
-        internal MainViewModel() { LoaderManager.Instance.Initialize(this); }
+        internal MainViewModel() { }
 
-        #region OnPropertyChanged
+        #region INotifyPropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;
 

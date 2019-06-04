@@ -61,8 +61,6 @@
       <DependentUpon>MeatFactoryDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs" />
-    <Compile Include="Tools\ILoaderOwner.cs" />
-    <Compile Include="Tools\Managers\LoaderManager.cs" />
     <Compile Include="Tools\Managers\NavigationManager.cs" />
     <Compile Include="Tools\Managers\StationManager.cs" />
     <Compile Include="Tools\Navigation\IContentOwner.cs" />

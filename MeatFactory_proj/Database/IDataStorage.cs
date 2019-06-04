@@ -15,5 +15,6 @@ namespace MeatFactory_proj.Database
         bool userExists(String login);
         String getPassword(string login);
         User getUser(string login);
+        void insertNewUser(string login, string password);
     }
 }

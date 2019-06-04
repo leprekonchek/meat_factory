@@ -10,27 +10,36 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="10"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="Login:" TextAlignment="Center" Margin="253,6,9.667,6"/>
-        <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
-        <TextBlock Grid.Row="4" Grid.Column="1" Text="Password:" TextAlignment="Center" Margin="275,5,9.667,5"/>
-        <PasswordBox Grid.Row="4" Grid.Column="3" Name="PasswordBox"></PasswordBox>
+        <!-- Login -->
+        <TextBlock Grid.Row="2" Grid.Column="2" Text="Login:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+        <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
-        <Button Background="Azure" Grid.Row="6" Grid.Column="3" Content="Sign In" Command="{Binding SigInCommand}" Margin="102.667,10,114,140" Grid.RowSpan="2"/>
+        <!-- Password -->
+        <TextBlock Grid.Row="4" Grid.Column="2" Text="Password:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+        <PasswordBox Grid.Row="4" Grid.Column="4" Name="PasswordBox"></PasswordBox>
+
+        <!-- Buttons -->
+        <Button Background="Azure" Grid.Row="6" Grid.Column="4" Content="Sign In" Command="{Binding SigInCommand}" />
+        <Button Background="Azure" Grid.Row="8" Grid.Column="4" Content="Sign Up" Command="{Binding SigUpCommand}" />
     </Grid>
 </UserControl>

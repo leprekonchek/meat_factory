@@ -370,6 +370,24 @@ namespace MeatFactory_proj.Database
             return password;
         }
 
+        public void insertNewUser(string login, string password)
+        {
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+                connection.Open();
+
+                SqlCommand query = new SqlCommand(
+                    "INSERT INTO User (Login, Password)" +
+                    $"VALUES '{login}', '{password}'",
+                    connection);
+
+                query.ExecuteNonQuery();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+        }
+
         #endregion
     }
 }
