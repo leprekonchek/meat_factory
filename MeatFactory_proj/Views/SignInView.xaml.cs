@@ -1,4 +1,5 @@
-﻿using MeatFactory_proj.Tools.Navigation;
+﻿using MeatFactory_proj.Tools.Managers;
+using MeatFactory_proj.Tools.Navigation;
 using MeatFactory_proj.ViewModels;
 
 namespace MeatFactory_proj.Views
@@ -9,6 +10,7 @@ namespace MeatFactory_proj.Views
         {
             InitializeComponent();
             DataContext = new SignInViewModel();
+            StationManager.Password = PasswordBox;
         }
     }
 }

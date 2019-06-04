@@ -7,6 +7,8 @@ namespace MeatFactory_proj
 {
     public partial class MainWindow : IContentOwner
     {
+        public ContentControl ContentControl => _contentControl;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -14,7 +16,5 @@ namespace MeatFactory_proj
             NavigationManager.Instance.Initialize(new InitNavigationModel(this));
             NavigationManager.Instance.Navigate(ViewType.StartView);
         }
-
-        public ContentControl ContentControl => _contentControl;
     }
 }

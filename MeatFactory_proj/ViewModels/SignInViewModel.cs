@@ -9,12 +9,6 @@ namespace MeatFactory_proj.ViewModels
 {
     internal class SignInViewModel : INotifyPropertyChanged
     {
-        #region Fields
-
-        private string _login;
-
-        #endregion
-
         #region Commands
 
         private RelayCommand<object> _signInCommand;
@@ -24,16 +18,8 @@ namespace MeatFactory_proj.ViewModels
 
         #region Properties
 
-        public string Login
-        {
-            get => _login;
-            set
-            {
-                _login = value.Replace(" ", "Space");
-                OnPropertyChanged();
-            }
-        }
-        
+        public string Login { get; set; }
+  
         public RelayCommand<object> SignInCommand =>
             _signInCommand ?? (_signInCommand = new RelayCommand<object>(o => SignInImplementation(), o => CanExecute()));
 
@@ -42,17 +28,17 @@ namespace MeatFactory_proj.ViewModels
 
         #endregion
 
-        private bool CanExecute() => !string.IsNullOrEmpty(_login) && !string.IsNullOrEmpty(StationManager.Password.Password);
+        private bool CanExecute() => !string.IsNullOrEmpty(Login) && !string.IsNullOrEmpty(StationManager.Password.Password);
 
         private void SignInImplementation()
         {
-            bool exists = StationManager.DataStorage.userExists(_login);
+            bool exists = StationManager.DataStorage.userExists(Login);
             if (exists)
             {
-                string password = StationManager.DataStorage.getPassword(_login);
+                string password = StationManager.DataStorage.getPassword(Login);
                 if (password == StationManager.Password.Password)
                 {
-                    StationManager.CurrentUser = StationManager.DataStorage.getUser(_login); ;
+                    StationManager.CurrentUser = StationManager.DataStorage.getUser(Login); ;
                     NavigationManager.Instance.Navigate(ViewType.ProductView);
                 }
                 else { MessageBox.Show("Password is not correct"); }

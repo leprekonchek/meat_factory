@@ -306,7 +306,7 @@ namespace MeatFactory_proj.Database
 
                 SqlCommand query = new SqlCommand(
                     "SELECT COUNT(*) " +
-                    "FROM User " +
+                    "FROM Users " +
                     $"WHERE Login='{login}'",
                 connection);
                 int count = (int)query.ExecuteScalar();
@@ -326,7 +326,7 @@ namespace MeatFactory_proj.Database
                 connection.Open();
 
                 SqlCommand query = new SqlCommand($"SELECT * " +
-                                                  $"FROM User " +
+                                                  "FROM Users " +
                                                   $"WHERE Login = '{login}'", connection);
 
                 SqlDataReader reader = query.ExecuteReader();
@@ -349,14 +349,14 @@ namespace MeatFactory_proj.Database
 
         public String getPassword(string login)
         {
-            String password = "";
+            string password = "";
             try
             {
                 if (connection == null) { throw new Exception("Connection String is Null"); }
                 connection.Open();
 
-                SqlCommand query = new SqlCommand($"SELECT Password " +
-                                                  $"FROM User " +
+                SqlCommand query = new SqlCommand("SELECT Password " +
+                                                  "FROM Users " +
                                                   $"WHERE Login = '{login}'", connection);
 
                 SqlDataReader reader = query.ExecuteReader();
@@ -378,10 +378,7 @@ namespace MeatFactory_proj.Database
                 connection.Open();
 
                 SqlCommand query = new SqlCommand(
-                    "INSERT INTO User (Login, Password)" +
-                    $"VALUES '{login}', '{password}'",
-                    connection);
-
+                $"INSERT INTO Users (Login, Password) VALUES ('{login}', '{password}')", connection);
                 query.ExecuteNonQuery();
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
