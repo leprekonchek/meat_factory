@@ -6,7 +6,7 @@
         public string Name { get; set; }
         public string Type { get; set; }
         public string Quantity { get; set; }
-        public string Price { get; set; }
+        public decimal Price { get; set; }
         public bool IsPackage { get; set; }
 
     }

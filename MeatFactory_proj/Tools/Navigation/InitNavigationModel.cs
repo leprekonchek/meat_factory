@@ -17,6 +17,9 @@ namespace MeatFactory_proj.Tools.Navigation
                 case ViewType.ProductView:
                     ViewsDictionary.Add(viewType, new ProductView());
                     break;
+                case ViewType.ProductsAndComponentsView:
+                    ViewsDictionary.Add(viewType, new ProductsAndComponents());
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(viewType), viewType, null);
             }

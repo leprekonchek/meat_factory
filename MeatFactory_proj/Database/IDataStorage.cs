@@ -16,5 +16,7 @@ namespace MeatFactory_proj.Database
         String getPassword(string login);
         User getUser(string login);
         void insertNewUser(string login, string password);
+
+        List<Component> selectComponentByProductId(string barcode);
     }
 }

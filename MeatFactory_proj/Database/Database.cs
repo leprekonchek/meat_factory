@@ -195,7 +195,7 @@ namespace MeatFactory_proj.Database
                 connection.Open();
 
                 SqlCommand query = new SqlCommand(
-                    "SELECT * FROM Component",
+                    "SELECT * FROM Components",
                     connection);
 
                 SqlDataReader reader = query.ExecuteReader();
@@ -207,7 +207,7 @@ namespace MeatFactory_proj.Database
                         Name = reader.GetString(1),
                         Type = reader.GetString(2),
                         Quantity = reader.GetString(3),
-                        Price = reader.GetString(4),
+                        Price = reader.GetDecimal(4),
                         IsPackage = reader.GetBoolean(5)
                     };
                     components.Add(component);
@@ -383,6 +383,44 @@ namespace MeatFactory_proj.Database
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
             finally { connection?.Close(); }
+        }
+
+        #endregion
+
+        #region Component
+
+        public List<Component> selectComponentByProductId(string barcode)
+        {
+            List<Component> lc = new List<Component>();
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+
+                connection.Open();
+
+                SqlCommand query = new SqlCommand(
+                    "SELECT Component_name, Component_type, Is_package " +
+                    "FROM Components c INNER JOIN ComponentAndProduct cp ON c.Component_code = cp.Component_code " +
+                    $"WHERE Barcode = '{barcode}'", connection);
+
+                SqlDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    Component c = new Component
+                    {
+                        Name = reader.GetString(0),
+                        Type = reader.GetString(1),
+                        IsPackage = reader.GetBoolean(2)
+                    };
+                    lc.Add(c);
+                }
+
+                reader.Close();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+
+            return lc;
         }
 
         #endregion
