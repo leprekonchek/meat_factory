@@ -39,7 +39,7 @@ namespace MeatFactory_proj.ViewModels
                 if (password == StationManager.Password.Password)
                 {
                     StationManager.CurrentUser = StationManager.DataStorage.getUser(Login); ;
-                    NavigationManager.Instance.Navigate(ViewType.ProductView);
+                    NavigationManager.Instance.Navigate(ViewType.ProductsAndComponentsView);
                 }
                 else { MessageBox.Show("Password is not correct"); }
             }
