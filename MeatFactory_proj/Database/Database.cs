@@ -15,18 +15,17 @@ namespace MeatFactory_proj.Database
         SqlConnection connection = new SqlConnection(Properties.Settings.Default.MeatFactoryConnectionString);
 
         #region Examples
+        // ADD PUBLIC IDENTIFICATOR TO THEM AFTER COPYING
 
         void insertSmth(Product product)
         {
             try
             {
                 if (connection == null) { throw new Exception("Connection String is Null"); }
-
                 connection.Open();
-                SqlCommand query = new SqlCommand(
-                    "INSERT INTO table_name (Name, column2, ..) " + // which columns
-                    "VALUES 'gosha', value2, ..", // which values
-                    connection);
+
+                SqlCommand query = new SqlCommand("INSERT INTO table_name (Name, column2, ..) " + // which columns
+                    "VALUES 'gosha', value2, ..", connection); // which values
 
                 query.ExecuteNonQuery();
             }
@@ -40,14 +39,11 @@ namespace MeatFactory_proj.Database
             try
             {
                 if (connection == null) { throw new Exception("Connection String is Null"); }
-
                 connection.Open();
 
-                SqlCommand query = new SqlCommand(
-                    "UPDATE table_name " +
+                SqlCommand query = new SqlCommand("UPDATE table_name " +
                     $"SET column1 = '{product.Name}', ..." + // here are columns and values which to update, list all columns (!)
-                    $"WHERE Barcode = '{product.Barcode}'",
-                    connection);
+                    $"WHERE Barcode = '{product.Barcode}'", connection);
 
                 query.ExecuteNonQuery();
             }
@@ -60,19 +56,15 @@ namespace MeatFactory_proj.Database
             try
             {
                 if (connection == null) { throw new Exception("Connection String is Null"); }
-
                 connection.Open();
 
-                /*SqlCommand query = new SqlCommand(
-                    "DELETE FROM table_name " +
+                /*SqlCommand query = new SqlCommand(                    "DELETE FROM table_name " +
                     "WHERE Name = '" + product.Name + "'",
                     connection);*/
 
-                SqlCommand query = new SqlCommand(
-                    "DELETE FROM table_name " +
-                    $"WHERE Name = '{name}'",
-                    /*$"WHERE Age = {age}",*/
-                    connection);
+                SqlCommand query = new SqlCommand("DELETE FROM table_name " +
+                    $"WHERE Name = '{name}'", connection);
+                /*$"WHERE Age = {age}",*/
 
                 query.ExecuteNonQuery();
             }
@@ -195,7 +187,7 @@ namespace MeatFactory_proj.Database
                 connection.Open();
 
                 SqlCommand query = new SqlCommand(
-                    "SELECT * FROM Component",
+                    "SELECT * FROM Components",
                     connection);
 
                 SqlDataReader reader = query.ExecuteReader();
@@ -207,7 +199,7 @@ namespace MeatFactory_proj.Database
                         Name = reader.GetString(1),
                         Type = reader.GetString(2),
                         Quantity = reader.GetString(3),
-                        Price = reader.GetString(4),
+                        Price = reader.GetDecimal(4),
                         IsPackage = reader.GetBoolean(5)
                     };
                     components.Add(component);
@@ -379,6 +371,101 @@ namespace MeatFactory_proj.Database
 
                 SqlCommand query = new SqlCommand(
                 $"INSERT INTO Users (Login, Password) VALUES ('{login}', '{password}')", connection);
+                query.ExecuteNonQuery();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+        }
+
+        #endregion
+
+        #region Component
+
+        public List<Component> selectComponentByProductId(string barcode)
+        {
+            List<Component> lc = new List<Component>();
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+
+                connection.Open();
+
+                SqlCommand query = new SqlCommand(
+                    "SELECT Component_name, Component_type, Is_package " +
+                    "FROM Components c INNER JOIN ComponentAndProduct cp ON c.Component_code = cp.Component_code " +
+                    $"WHERE Barcode = '{barcode}'", connection);
+
+                SqlDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    Component c = new Component
+                    {
+                        Name = reader.GetString(0),
+                        Type = reader.GetString(1),
+                        IsPackage = reader.GetBoolean(2)
+                    };
+                    lc.Add(c);
+                }
+
+                reader.Close();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+
+            return lc;
+        }
+
+        #endregion
+
+        #region Product
+
+        public void insertNewProduct(Product product)
+        {
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+                connection.Open();
+
+                SqlCommand query = new SqlCommand("INSERT INTO Product (Barcode, Product_name, Product_type, Product_quantity, " +
+                                                  "Weight, Product_measure_type, Product_price, Expiration_date) " +
+                                                  $"VALUES '{product.Barcode}','{product.Name}','{product.Type}','{product.Quantity}'," +
+                                                  $"'{product.Weight}','{product.MeasureType}', '{product.Price}','{product.ExpirationDate}'", connection); // which values
+
+                query.ExecuteNonQuery();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+        }
+
+        public void updateProduct(Product product)
+        {
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+                connection.Open();
+
+                SqlCommand query = new SqlCommand("UPDATE Product " +
+                                                  $"SET Product_name = '{product.Name}', Product_type = '{product.Type}', Product_quantity = '{product.Quantity}', " +
+                                                  $"Weight = '{product.Weight}', Product_measure_type = '{product.MeasureType}', Product_price = '{product.Price}', " +
+                                                  $"Expiration_date = '{product.ExpirationDate}' " +
+                                                  $"WHERE Barcode = '{product.Barcode}'", connection);
+
+                query.ExecuteNonQuery();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+        }
+
+        public void deleteProduct(string barcode)
+        {
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+                connection.Open();
+
+                SqlCommand query = new SqlCommand("DELETE FROM Product " +
+                                                  $"WHERE Barcode = '{barcode}'", connection);
+
                 query.ExecuteNonQuery();
             }
             catch (Exception e) { MessageBox.Show(e.Message); }

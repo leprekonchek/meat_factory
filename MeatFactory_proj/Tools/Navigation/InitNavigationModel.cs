@@ -1,5 +1,6 @@
 ﻿using System;
 using MeatFactory_proj.Views;
+using MeatFactory_proj.Views.Add_edit;
 
 namespace MeatFactory_proj.Tools.Navigation
 {
@@ -16,6 +17,12 @@ namespace MeatFactory_proj.Tools.Navigation
                     break;
                 case ViewType.ProductView:
                     ViewsDictionary.Add(viewType, new ProductView());
+                    break;
+                case ViewType.ProductsAndComponentsView:
+                    ViewsDictionary.Add(viewType, new ProductsAndComponents());
+                    break;
+                case ViewType.AddProductView:
+                    ViewsDictionary.Add(viewType, new AddProduct());
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(viewType), viewType, null);

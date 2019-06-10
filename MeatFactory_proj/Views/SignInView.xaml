@@ -40,6 +40,6 @@
 
         <!-- Buttons -->
         <Button Background="Azure" Grid.Row="6" Grid.Column="4" Content="Sign In" Command="{Binding SignInCommand}" />
-        <Button Background="Azure" Grid.Row="8" Grid.Column="4" Content="Sign Up" Command="{Binding SignUpCommand}" />
+       <!-- <Button Background="Azure" Grid.Row="8" Grid.Column="4" Content="Sign Up" Command="{Binding SignUpCommand}" />-->
     </Grid>
 </UserControl>
