@@ -9,11 +9,11 @@ namespace MeatFactory_proj.ViewModels
 {
     class AddProductViewModel
     {
-        private static Product Product { get; set; }
+        #region Properties and Commands
+
+        public Product Product { get; set; }
         private bool AddProduct { get; }
-
-        #region Commands
-
+        
         private ICommand _saveCommand;
         private ICommand _cancelCommand;
 
@@ -22,27 +22,19 @@ namespace MeatFactory_proj.ViewModels
         public AddProductViewModel()
         {
             Product = StationManager.CurrentProduct;
-            AddProduct = Product == null;
+            AddProduct = Product.Barcode == null;
         }
 
-        public ICommand CancelCommand =>
-            _cancelCommand ?? (_cancelCommand = new RelayCommand<Window>(w => w?.Close()));
+        public ICommand CancelCommand => _cancelCommand ?? (_cancelCommand = new RelayCommand<Window>(w => w?.Close()));
+        public ICommand SaveCommand => _saveCommand ?? (_saveCommand = new RelayCommand<Window>(SaveImplementation, o => CanExecute()));
 
-        public ICommand SaveCommand =>
-            _saveCommand ?? (_saveCommand = new RelayCommand<Window>(SaveImplementation));
-
-        public bool CanExecute() => !String.IsNullOrEmpty(Product.Barcode);
+        public bool CanExecute() => !String.IsNullOrEmpty(Product.Barcode) && !String.IsNullOrEmpty(Product.Name) && !String.IsNullOrEmpty(Product.Type);
 
         private void SaveImplementation(Window win)
         {
-            if (AddProduct)
-            {
-                StationManager.DataStorage.insertNewProduct(Product);
-                win?.Close();
-            }
-            else
-                StationManager.DataStorage.updateProduct(Product);
+            if (AddProduct) StationManager.DataStorage.insertNewProduct(Product);
+            else StationManager.DataStorage.updateProduct(Product);
+            win?.Close();
         }
     }
 }
-

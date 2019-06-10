@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MeatFactory_proj.Views.Add_edit"
         mc:Ignorable="d"
+        Name="AddProductW"
         Title="Додати новий продукт" Height="350" Width="500">
     <Grid>
         <Grid.RowDefinitions>
@@ -35,12 +35,12 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="20"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+
         <Label Content="Штрихкод" Grid.Row="1" Grid.Column="1"></Label>
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Product.Barcode, Mode=TwoWay}"></TextBox>
 
         <Label Content="Назва" Grid.Row="4" Grid.Column="1"></Label>
-        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Product.Name}"></TextBox>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Product.Name, Mode=TwoWay}"></TextBox>
 
         <Label Content="Тип" Grid.Row="7" Grid.Column="1"></Label>
         <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Product.Type, Mode=TwoWay}"></TextBox>
@@ -58,10 +58,10 @@
         <Label Content="Ціна" Grid.Row="7" Grid.Column="3"></Label>
         <TextBox Grid.Row="8" Grid.Column="3" Text="{Binding Product.Price, Mode=TwoWay}"></TextBox>
 
-        <Label Content="Дата виготвлення" Grid.Row="10" Grid.Column="3"></Label>
+        <Label Content="Дата виготовлення" Grid.Row="10" Grid.Column="3"></Label>
         <TextBox Grid.Row="11" Grid.Column="3" Text="{Binding Product.ExpirationDate, Mode=TwoWay}"></TextBox>
 
-        <Button Grid.Row="14" Grid.Column="1" Content="Save" Command="{Binding SaveCommand}"></Button>
-        <Button Grid.Row="14" Grid.Column="3" Content="Cancel" Command="{Binding CancelCommand}"></Button>
+        <Button Grid.Row="14" Grid.Column="1" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=AddProductW}">Зберегти</Button>
+        <Button Grid.Row="14" Grid.Column="3" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=AddProductW}">Скасувати</Button>
     </Grid>
 </Window>

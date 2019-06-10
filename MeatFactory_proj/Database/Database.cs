@@ -428,8 +428,8 @@ namespace MeatFactory_proj.Database
 
                 SqlCommand query = new SqlCommand("INSERT INTO Product (Barcode, Product_name, Product_type, Product_quantity, " +
                                                   "Weight, Product_measure_type, Product_price, Expiration_date) " +
-                                                  $"VALUES '{product.Barcode}','{product.Name}','{product.Type}','{product.Quantity}'," +
-                                                  $"'{product.Weight}','{product.MeasureType}', '{product.Price}','{product.ExpirationDate}'", connection); // which values
+                                                  $"VALUES ('{product.Barcode}','{product.Name}','{product.Type}','{product.Quantity}'," +
+                                                  $"'{product.Weight}','{product.MeasureType}', '{product.Price}','{product.ExpirationDate}')", connection); // which values
 
                 query.ExecuteNonQuery();
             }

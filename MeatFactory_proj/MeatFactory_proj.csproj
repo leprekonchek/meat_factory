@@ -68,6 +68,7 @@
     <Compile Include="Tools\Navigation\INavigationModel.cs" />
     <Compile Include="Tools\Navigation\InitNavigationModel.cs" />
     <Compile Include="Tools\Navigation\NavigationModel.cs" />
+    <Compile Include="Tools\PropertyChanged.cs" />
     <Compile Include="Tools\RelayCommand.cs" />
     <Compile Include="ViewModels\Add, edit\AddProductViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

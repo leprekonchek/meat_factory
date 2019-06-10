@@ -1,13 +1,11 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows;
+﻿using System.Windows;
 using MeatFactory_proj.Tools;
 using MeatFactory_proj.Tools.Managers;
 using MeatFactory_proj.Tools.Navigation;
 
 namespace MeatFactory_proj.ViewModels
 {
-    internal class SignInViewModel : INotifyPropertyChanged
+    internal class SignInViewModel : PropertyChangedVM
     {
         public SignInViewModel()
         {
@@ -56,16 +54,5 @@ namespace MeatFactory_proj.ViewModels
             StationManager.DataStorage.insertNewUser(Login, StationManager.Password.Password);
             MessageBox.Show("New user created!");
         }
-
-        #region INotifyPropertyChanged
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion
     }
 }

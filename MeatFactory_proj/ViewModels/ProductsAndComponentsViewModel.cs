@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows;
 using MeatFactory_proj.Models;
 using MeatFactory_proj.Tools;
@@ -10,7 +8,7 @@ using Component = MeatFactory_proj.Models.Component;
 
 namespace MeatFactory_proj.ViewModels
 {
-    class ProductsAndComponentsViewModel : INotifyPropertyChanged
+    class ProductsAndComponentsViewModel : PropertyChangedVM
     {
         #region Fields and Commands
 
@@ -52,27 +50,28 @@ namespace MeatFactory_proj.ViewModels
 
         private void AddProductImplementation()
         {
-            AddProduct win = new AddProduct();
-            win.ShowDialog();
-            OnPropertyChanged("Products");
+            StationManager.CurrentProduct = new Product();
+            OpenAddWindow();
         }
 
         private void EditProductImplementation()
         {
             StationManager.CurrentProduct = SelectedProduct;
+            OpenAddWindow();
+        }
+
+        private void OpenAddWindow()
+        {
             AddProduct win = new AddProduct();
             win.ShowDialog();
-            OnPropertyChanged("Products");
+            UpdateProductsList();
         }
 
         private void DeleteProductImplementation()
         {
             MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete product", MessageBoxButton.YesNoCancel);
-            if (result == MessageBoxResult.Yes)
-            {
-                StationManager.DataStorage.deleteProduct(SelectedProduct.Barcode);
-            }
-            OnPropertyChanged("Products");
+            if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteProduct(SelectedProduct.Barcode);
+            UpdateProductsList();
         }
 
         private bool CanExecute() => SelectedProduct != null;
@@ -82,16 +81,11 @@ namespace MeatFactory_proj.ViewModels
             if (SelectedProduct != null) Components = StationManager.DataStorage.selectComponentByProductId(SelectedProduct.Barcode);
             OnPropertyChanged("Components");
         }
-        
-        #region INotifyPropertyChanged
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public void UpdateProductsList()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            Products = StationManager.DataStorage.selectAllProducts();
+            OnPropertyChanged("Products");
         }
-
-        #endregion
     }
 }
