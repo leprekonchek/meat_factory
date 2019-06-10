@@ -101,8 +101,8 @@ namespace MeatFactory_proj {
                 if ((ds.Tables["Buyer"] != null)) {
                     base.Tables.Add(new BuyerDataTable(ds.Tables["Buyer"]));
                 }
-                if ((ds.Tables["Component"] != null)) {
-                    base.Tables.Add(new ComponentDataTable(ds.Tables["Component"]));
+                if ((ds.Tables["ThisComponent"] != null)) {
+                    base.Tables.Add(new ComponentDataTable(ds.Tables["ThisComponent"]));
                 }
                 if ((ds.Tables["ComponentAndProduct"] != null)) {
                     base.Tables.Add(new ComponentAndProductDataTable(ds.Tables["ComponentAndProduct"]));
@@ -355,8 +355,8 @@ namespace MeatFactory_proj {
                 if ((ds.Tables["Buyer"] != null)) {
                     base.Tables.Add(new BuyerDataTable(ds.Tables["Buyer"]));
                 }
-                if ((ds.Tables["Component"] != null)) {
-                    base.Tables.Add(new ComponentDataTable(ds.Tables["Component"]));
+                if ((ds.Tables["ThisComponent"] != null)) {
+                    base.Tables.Add(new ComponentDataTable(ds.Tables["ThisComponent"]));
                 }
                 if ((ds.Tables["ComponentAndProduct"] != null)) {
                     base.Tables.Add(new ComponentAndProductDataTable(ds.Tables["ComponentAndProduct"]));
@@ -430,7 +430,7 @@ namespace MeatFactory_proj {
                     this.tableBuyer.InitVars();
                 }
             }
-            this.tableComponent = ((ComponentDataTable)(base.Tables["Component"]));
+            this.tableComponent = ((ComponentDataTable)(base.Tables["ThisComponent"]));
             if ((initTable == true)) {
                 if ((this.tableComponent != null)) {
                     this.tableComponent.InitVars();
@@ -1154,7 +1154,7 @@ namespace MeatFactory_proj {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ComponentDataTable() {
-                this.TableName = "Component";
+                this.TableName = "ThisComponent";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -6993,7 +6993,7 @@ SELECT EDRPOU_buyer, Buyer_name, Buyer_phone, Buyer_is_legal, Buyer_street, Buye
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Component";
+            tableMapping.DataSetTable = "ThisComponent";
             tableMapping.ColumnMappings.Add("Component_code", "Component_code");
             tableMapping.ColumnMappings.Add("Component_name", "Component_name");
             tableMapping.ColumnMappings.Add("Component_type", "Component_type");
@@ -7003,7 +7003,7 @@ SELECT EDRPOU_buyer, Buyer_name, Buyer_phone, Buyer_is_legal, Buyer_street, Buye
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Component] WHERE (([Component_code] = @Original_Component_code) AND ([Component_name] = @Original_Component_name) AND ([Component_type] = @Original_Component_type) AND ([Component_quantity] = @Original_Component_quantity) AND ([Component_price] = @Original_Component_price) AND ([Is_package] = @Original_Is_package))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ThisComponent] WHERE (([Component_code] = @Original_Component_code) AND ([Component_name] = @Original_Component_name) AND ([Component_type] = @Original_Component_type) AND ([Component_quantity] = @Original_Component_quantity) AND ([Component_price] = @Original_Component_price) AND ([Is_package] = @Original_Is_package))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Component_code", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Component_code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Component_name", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Component_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7013,8 +7013,8 @@ SELECT EDRPOU_buyer, Buyer_name, Buyer_phone, Buyer_is_legal, Buyer_street, Buye
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Is_package", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_package", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Component] ([Component_code], [Component_name], [Component_type], [Component_quantity], [Component_price], [Is_package]) VALUES (@Component_code, @Component_name, @Component_type, @Component_quantity, @Component_price, @Is_package);
-SELECT Component_code, Component_name, Component_type, Component_quantity, Component_price, Is_package FROM Component WHERE (Component_code = @Component_code)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ThisComponent] ([Component_code], [Component_name], [Component_type], [Component_quantity], [Component_price], [Is_package]) VALUES (@Component_code, @Component_name, @Component_type, @Component_quantity, @Component_price, @Is_package);
+SELECT Component_code, Component_name, Component_type, Component_quantity, Component_price, Is_package FROM ThisComponent WHERE (Component_code = @Component_code)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Component_code", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Component_code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Component_name", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Component_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7024,8 +7024,8 @@ SELECT Component_code, Component_name, Component_type, Component_quantity, Compo
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Is_package", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_package", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Component] SET [Component_code] = @Component_code, [Component_name] = @Component_name, [Component_type] = @Component_type, [Component_quantity] = @Component_quantity, [Component_price] = @Component_price, [Is_package] = @Is_package WHERE (([Component_code] = @Original_Component_code) AND ([Component_name] = @Original_Component_name) AND ([Component_type] = @Original_Component_type) AND ([Component_quantity] = @Original_Component_quantity) AND ([Component_price] = @Original_Component_price) AND ([Is_package] = @Original_Is_package));
-SELECT Component_code, Component_name, Component_type, Component_quantity, Component_price, Is_package FROM Component WHERE (Component_code = @Component_code)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ThisComponent] SET [Component_code] = @Component_code, [Component_name] = @Component_name, [Component_type] = @Component_type, [Component_quantity] = @Component_quantity, [Component_price] = @Component_price, [Is_package] = @Is_package WHERE (([Component_code] = @Original_Component_code) AND ([Component_name] = @Original_Component_name) AND ([Component_type] = @Original_Component_type) AND ([Component_quantity] = @Original_Component_quantity) AND ([Component_price] = @Original_Component_price) AND ([Is_package] = @Original_Is_package));
+SELECT Component_code, Component_name, Component_type, Component_quantity, Component_price, Is_package FROM ThisComponent WHERE (Component_code = @Component_code)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Component_code", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Component_code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Component_name", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Component_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7055,7 +7055,7 @@ SELECT Component_code, Component_name, Component_type, Component_quantity, Compo
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Component_code, Component_name, Component_type, Component_quantity, Compon" +
-                "ent_price, Is_package FROM dbo.Component";
+                "ent_price, Is_package FROM dbo.ThisComponent";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7094,7 +7094,7 @@ SELECT Component_code, Component_name, Component_type, Component_quantity, Compo
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(MeatFactoryDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Component");
+            return this.Adapter.Update(dataSet, "ThisComponent");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

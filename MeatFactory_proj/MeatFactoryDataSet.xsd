@@ -2,12 +2,12 @@
 <xs:schema id="MeatFactoryDataSet" targetNamespace="http://tempuri.org/MeatFactoryDataSet.xsd" xmlns:mstns="http://tempuri.org/MeatFactoryDataSet.xsd" xmlns="http://tempuri.org/MeatFactoryDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsThisComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="MeatFactoryConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MeatFactoryConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MeatFactory_proj.Properties.Settings.GlobalReference.Default.MeatFactoryConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BuyerTableAdapter" GeneratorDataComponentClassName="BuyerTableAdapter" Name="Buyer" UserDataComponentName="BuyerTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BuyerTableAdapter" GeneratorDataThisComponentClassName="BuyerTableAdapter" Name="Buyer" UserDataThisComponentName="BuyerTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.Buyer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -85,58 +85,58 @@ SELECT EDRPOU_buyer, Buyer_name, Buyer_phone, Buyer_is_legal, Buyer_street, Buye
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ComponentTableAdapter" GeneratorDataComponentClassName="ComponentTableAdapter" Name="Component" UserDataComponentName="ComponentTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ThisComponentTableAdapter" GeneratorDataThisComponentClassName="ThisComponentTableAdapter" Name="ThisComponent" UserDataThisComponentName="ThisComponentTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.Component" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.ThisComponent" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Component] WHERE (([Component_code] = @Original_Component_code) AND ([Component_name] = @Original_Component_name) AND ([Component_type] = @Original_Component_type) AND ([Component_quantity] = @Original_Component_quantity) AND ([Component_price] = @Original_Component_price) AND ([Is_package] = @Original_Is_package))</CommandText>
+                    <CommandText>DELETE FROM [dbo].[ThisComponent] WHERE (([ThisComponent_code] = @Original_ThisComponent_code) AND ([ThisComponent_name] = @Original_ThisComponent_name) AND ([ThisComponent_type] = @Original_ThisComponent_type) AND ([ThisComponent_quantity] = @Original_ThisComponent_quantity) AND ([ThisComponent_price] = @Original_ThisComponent_price) AND ([Is_package] = @Original_Is_package))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_code" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_name" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_type" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_quantity" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_Component_price" Precision="0" ProviderType="SmallMoney" Scale="0" Size="0" SourceColumn="Component_price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_quantity" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_ThisComponent_price" Precision="0" ProviderType="SmallMoney" Scale="0" Size="0" SourceColumn="ThisComponent_price" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Is_package" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Is_package" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Component] ([Component_code], [Component_name], [Component_type], [Component_quantity], [Component_price], [Is_package]) VALUES (@Component_code, @Component_name, @Component_type, @Component_quantity, @Component_price, @Is_package);
-SELECT Component_code, Component_name, Component_type, Component_quantity, Component_price, Is_package FROM Component WHERE (Component_code = @Component_code)</CommandText>
+                    <CommandText>INSERT INTO [dbo].[ThisComponent] ([ThisComponent_code], [ThisComponent_name], [ThisComponent_type], [ThisComponent_quantity], [ThisComponent_price], [Is_package]) VALUES (@ThisComponent_code, @ThisComponent_name, @ThisComponent_type, @ThisComponent_quantity, @ThisComponent_price, @Is_package);
+SELECT ThisComponent_code, ThisComponent_name, ThisComponent_type, ThisComponent_quantity, ThisComponent_price, Is_package FROM ThisComponent WHERE (ThisComponent_code = @ThisComponent_code)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_code" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_name" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_type" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_quantity" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Component_price" Precision="0" ProviderType="SmallMoney" Scale="0" Size="0" SourceColumn="Component_price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_quantity" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@ThisComponent_price" Precision="0" ProviderType="SmallMoney" Scale="0" Size="0" SourceColumn="ThisComponent_price" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Is_package" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Is_package" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Component_code, Component_name, Component_type, Component_quantity, Component_price, Is_package FROM dbo.Component</CommandText>
+                    <CommandText>SELECT ThisComponent_code, ThisComponent_name, ThisComponent_type, ThisComponent_quantity, ThisComponent_price, Is_package FROM dbo.ThisComponent</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Component] SET [Component_code] = @Component_code, [Component_name] = @Component_name, [Component_type] = @Component_type, [Component_quantity] = @Component_quantity, [Component_price] = @Component_price, [Is_package] = @Is_package WHERE (([Component_code] = @Original_Component_code) AND ([Component_name] = @Original_Component_name) AND ([Component_type] = @Original_Component_type) AND ([Component_quantity] = @Original_Component_quantity) AND ([Component_price] = @Original_Component_price) AND ([Is_package] = @Original_Is_package));
-SELECT Component_code, Component_name, Component_type, Component_quantity, Component_price, Is_package FROM Component WHERE (Component_code = @Component_code)</CommandText>
+                    <CommandText>UPDATE [dbo].[ThisComponent] SET [ThisComponent_code] = @ThisComponent_code, [ThisComponent_name] = @ThisComponent_name, [ThisComponent_type] = @ThisComponent_type, [ThisComponent_quantity] = @ThisComponent_quantity, [ThisComponent_price] = @ThisComponent_price, [Is_package] = @Is_package WHERE (([ThisComponent_code] = @Original_ThisComponent_code) AND ([ThisComponent_name] = @Original_ThisComponent_name) AND ([ThisComponent_type] = @Original_ThisComponent_type) AND ([ThisComponent_quantity] = @Original_ThisComponent_quantity) AND ([ThisComponent_price] = @Original_ThisComponent_price) AND ([Is_package] = @Original_Is_package));
+SELECT ThisComponent_code, ThisComponent_name, ThisComponent_type, ThisComponent_quantity, ThisComponent_price, Is_package FROM ThisComponent WHERE (ThisComponent_code = @ThisComponent_code)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_code" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_name" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_type" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_quantity" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Component_price" Precision="0" ProviderType="SmallMoney" Scale="0" Size="0" SourceColumn="Component_price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_quantity" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@ThisComponent_price" Precision="0" ProviderType="SmallMoney" Scale="0" Size="0" SourceColumn="ThisComponent_price" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Is_package" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Is_package" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_code" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_name" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_type" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_quantity" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_Component_price" Precision="0" ProviderType="SmallMoney" Scale="0" Size="0" SourceColumn="Component_price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_quantity" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_ThisComponent_price" Precision="0" ProviderType="SmallMoney" Scale="0" Size="0" SourceColumn="ThisComponent_price" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Is_package" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Is_package" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
@@ -144,51 +144,51 @@ SELECT Component_code, Component_name, Component_type, Component_quantity, Compo
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Component_code" DataSetColumn="Component_code" />
-              <Mapping SourceColumn="Component_name" DataSetColumn="Component_name" />
-              <Mapping SourceColumn="Component_type" DataSetColumn="Component_type" />
-              <Mapping SourceColumn="Component_quantity" DataSetColumn="Component_quantity" />
-              <Mapping SourceColumn="Component_price" DataSetColumn="Component_price" />
+              <Mapping SourceColumn="ThisComponent_code" DataSetColumn="ThisComponent_code" />
+              <Mapping SourceColumn="ThisComponent_name" DataSetColumn="ThisComponent_name" />
+              <Mapping SourceColumn="ThisComponent_type" DataSetColumn="ThisComponent_type" />
+              <Mapping SourceColumn="ThisComponent_quantity" DataSetColumn="ThisComponent_quantity" />
+              <Mapping SourceColumn="ThisComponent_price" DataSetColumn="ThisComponent_price" />
               <Mapping SourceColumn="Is_package" DataSetColumn="Is_package" />
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ComponentAndProductTableAdapter" GeneratorDataComponentClassName="ComponentAndProductTableAdapter" Name="ComponentAndProduct" UserDataComponentName="ComponentAndProductTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ThisComponentAndProductTableAdapter" GeneratorDataThisComponentClassName="ThisComponentAndProductTableAdapter" Name="ThisComponentAndProduct" UserDataThisComponentName="ThisComponentAndProductTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.ComponentAndProduct" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.ThisComponentAndProduct" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[ComponentAndProduct] WHERE (([Component_code] = @Original_Component_code) AND ([Barcode] = @Original_Barcode))</CommandText>
+                    <CommandText>DELETE FROM [dbo].[ThisComponentAndProduct] WHERE (([ThisComponent_code] = @Original_ThisComponent_code) AND ([Barcode] = @Original_Barcode))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_code" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Barcode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Barcode" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[ComponentAndProduct] ([Component_code], [Barcode]) VALUES (@Component_code, @Barcode);
-SELECT Component_code, Barcode FROM ComponentAndProduct WHERE (Barcode = @Barcode) AND (Component_code = @Component_code)</CommandText>
+                    <CommandText>INSERT INTO [dbo].[ThisComponentAndProduct] ([ThisComponent_code], [Barcode]) VALUES (@ThisComponent_code, @Barcode);
+SELECT ThisComponent_code, Barcode FROM ThisComponentAndProduct WHERE (Barcode = @Barcode) AND (ThisComponent_code = @ThisComponent_code)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_code" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Barcode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Barcode" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Component_code, Barcode FROM dbo.ComponentAndProduct</CommandText>
+                    <CommandText>SELECT ThisComponent_code, Barcode FROM dbo.ThisComponentAndProduct</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[ComponentAndProduct] SET [Component_code] = @Component_code, [Barcode] = @Barcode WHERE (([Component_code] = @Original_Component_code) AND ([Barcode] = @Original_Barcode));
-SELECT Component_code, Barcode FROM ComponentAndProduct WHERE (Barcode = @Barcode) AND (Component_code = @Component_code)</CommandText>
+                    <CommandText>UPDATE [dbo].[ThisComponentAndProduct] SET [ThisComponent_code] = @ThisComponent_code, [Barcode] = @Barcode WHERE (([ThisComponent_code] = @Original_ThisComponent_code) AND ([Barcode] = @Original_Barcode));
+SELECT ThisComponent_code, Barcode FROM ThisComponentAndProduct WHERE (Barcode = @Barcode) AND (ThisComponent_code = @ThisComponent_code)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_code" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Barcode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Barcode" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_code" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_code" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Barcode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Barcode" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
@@ -196,12 +196,12 @@ SELECT Component_code, Barcode FROM ComponentAndProduct WHERE (Barcode = @Barcod
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Component_code" DataSetColumn="Component_code" />
+              <Mapping SourceColumn="ThisComponent_code" DataSetColumn="ThisComponent_code" />
               <Mapping SourceColumn="Barcode" DataSetColumn="Barcode" />
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PrivisionerTableAdapter" GeneratorDataComponentClassName="PrivisionerTableAdapter" Name="Privisioner" UserDataComponentName="PrivisionerTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PrivisionerTableAdapter" GeneratorDataThisComponentClassName="PrivisionerTableAdapter" Name="Privisioner" UserDataThisComponentName="PrivisionerTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.Privisioner" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -279,7 +279,7 @@ SELECT EDRPOU_provisioner, Provisioner_name, Provisioner_phone, Provisioner_is_l
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProductTableAdapter" GeneratorDataComponentClassName="ProductTableAdapter" Name="Product" UserDataComponentName="ProductTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProductTableAdapter" GeneratorDataThisComponentClassName="ProductTableAdapter" Name="Product" UserDataThisComponentName="ProductTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.Product" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -357,7 +357,7 @@ SELECT Barcode, Product_name, Product_type, Product_quantity, Weight, Product_me
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PurchaseAgreementTableAdapter" GeneratorDataComponentClassName="PurchaseAgreementTableAdapter" Name="PurchaseAgreement" UserDataComponentName="PurchaseAgreementTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PurchaseAgreementTableAdapter" GeneratorDataThisComponentClassName="PurchaseAgreementTableAdapter" Name="PurchaseAgreement" UserDataThisComponentName="PurchaseAgreementTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.PurchaseAgreement" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -415,14 +415,14 @@ SELECT Purchase_agreement_number, Date_pa, Is_paid, EDRPOU_provisioner FROM Purc
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PurchaseAgreementAndComponentTableAdapter" GeneratorDataComponentClassName="PurchaseAgreementAndComponentTableAdapter" Name="PurchaseAgreementAndComponent" UserDataComponentName="PurchaseAgreementAndComponentTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PurchaseAgreementAndThisComponentTableAdapter" GeneratorDataThisComponentClassName="PurchaseAgreementAndThisComponentTableAdapter" Name="PurchaseAgreementAndThisComponent" UserDataThisComponentName="PurchaseAgreementAndThisComponentTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.PurchaseAgreementAndComponent" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.PurchaseAgreementAndThisComponent" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[PurchaseAgreementAndComponent] WHERE (([Component_сode] = @Original_Component_сode) AND ([Purchase_agreement_number] = @Original_Purchase_agreement_number) AND ([PAC_quantity] = @Original_PAC_quantity) AND ([PAC_measure_type] = @Original_PAC_measure_type))</CommandText>
+                    <CommandText>DELETE FROM [dbo].[PurchaseAgreementAndThisComponent] WHERE (([ThisComponent_сode] = @Original_ThisComponent_сode) AND ([Purchase_agreement_number] = @Original_Purchase_agreement_number) AND ([PAC_quantity] = @Original_PAC_quantity) AND ([PAC_measure_type] = @Original_PAC_measure_type))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_сode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_сode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_сode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_сode" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Purchase_agreement_number" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Purchase_agreement_number" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_PAC_quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PAC_quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_PAC_measure_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PAC_measure_type" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -431,10 +431,10 @@ SELECT Purchase_agreement_number, Date_pa, Is_paid, EDRPOU_provisioner FROM Purc
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[PurchaseAgreementAndComponent] ([Component_сode], [Purchase_agreement_number], [PAC_quantity], [PAC_measure_type]) VALUES (@Component_сode, @Purchase_agreement_number, @PAC_quantity, @PAC_measure_type);
-SELECT Component_сode, Purchase_agreement_number, PAC_quantity, PAC_measure_type FROM PurchaseAgreementAndComponent WHERE (Component_сode = @Component_сode) AND (Purchase_agreement_number = @Purchase_agreement_number)</CommandText>
+                    <CommandText>INSERT INTO [dbo].[PurchaseAgreementAndThisComponent] ([ThisComponent_сode], [Purchase_agreement_number], [PAC_quantity], [PAC_measure_type]) VALUES (@ThisComponent_сode, @Purchase_agreement_number, @PAC_quantity, @PAC_measure_type);
+SELECT ThisComponent_сode, Purchase_agreement_number, PAC_quantity, PAC_measure_type FROM PurchaseAgreementAndThisComponent WHERE (ThisComponent_сode = @ThisComponent_сode) AND (Purchase_agreement_number = @Purchase_agreement_number)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_сode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_сode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_сode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_сode" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Purchase_agreement_number" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Purchase_agreement_number" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@PAC_quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PAC_quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@PAC_measure_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PAC_measure_type" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -443,20 +443,20 @@ SELECT Component_сode, Purchase_agreement_number, PAC_quantity, PAC_measure_typ
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Component_сode, Purchase_agreement_number, PAC_quantity, PAC_measure_type FROM dbo.PurchaseAgreementAndComponent</CommandText>
+                    <CommandText>SELECT ThisComponent_сode, Purchase_agreement_number, PAC_quantity, PAC_measure_type FROM dbo.PurchaseAgreementAndThisComponent</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[PurchaseAgreementAndComponent] SET [Component_сode] = @Component_сode, [Purchase_agreement_number] = @Purchase_agreement_number, [PAC_quantity] = @PAC_quantity, [PAC_measure_type] = @PAC_measure_type WHERE (([Component_сode] = @Original_Component_сode) AND ([Purchase_agreement_number] = @Original_Purchase_agreement_number) AND ([PAC_quantity] = @Original_PAC_quantity) AND ([PAC_measure_type] = @Original_PAC_measure_type));
-SELECT Component_сode, Purchase_agreement_number, PAC_quantity, PAC_measure_type FROM PurchaseAgreementAndComponent WHERE (Component_сode = @Component_сode) AND (Purchase_agreement_number = @Purchase_agreement_number)</CommandText>
+                    <CommandText>UPDATE [dbo].[PurchaseAgreementAndThisComponent] SET [ThisComponent_сode] = @ThisComponent_сode, [Purchase_agreement_number] = @Purchase_agreement_number, [PAC_quantity] = @PAC_quantity, [PAC_measure_type] = @PAC_measure_type WHERE (([ThisComponent_сode] = @Original_ThisComponent_сode) AND ([Purchase_agreement_number] = @Original_Purchase_agreement_number) AND ([PAC_quantity] = @Original_PAC_quantity) AND ([PAC_measure_type] = @Original_PAC_measure_type));
+SELECT ThisComponent_сode, Purchase_agreement_number, PAC_quantity, PAC_measure_type FROM PurchaseAgreementAndThisComponent WHERE (ThisComponent_сode = @ThisComponent_сode) AND (Purchase_agreement_number = @Purchase_agreement_number)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Component_сode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_сode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisComponent_сode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_сode" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Purchase_agreement_number" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Purchase_agreement_number" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@PAC_quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PAC_quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@PAC_measure_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PAC_measure_type" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Component_сode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Component_сode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisComponent_сode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisComponent_сode" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Purchase_agreement_number" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Purchase_agreement_number" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_PAC_quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PAC_quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_PAC_measure_type" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PAC_measure_type" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -466,14 +466,14 @@ SELECT Component_сode, Purchase_agreement_number, PAC_quantity, PAC_measure_typ
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Component_сode" DataSetColumn="Component_сode" />
+              <Mapping SourceColumn="ThisComponent_сode" DataSetColumn="ThisComponent_сode" />
               <Mapping SourceColumn="Purchase_agreement_number" DataSetColumn="Purchase_agreement_number" />
               <Mapping SourceColumn="PAC_quantity" DataSetColumn="PAC_quantity" />
               <Mapping SourceColumn="PAC_measure_type" DataSetColumn="PAC_measure_type" />
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaleAgreementTableAdapter" GeneratorDataComponentClassName="SaleAgreementTableAdapter" Name="SaleAgreement" UserDataComponentName="SaleAgreementTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaleAgreementTableAdapter" GeneratorDataThisComponentClassName="SaleAgreementTableAdapter" Name="SaleAgreement" UserDataThisComponentName="SaleAgreementTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.SaleAgreement" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -531,7 +531,7 @@ SELECT Sale_agreement_number, EDRPOU_buyer, Date_sa, Is_paid FROM SaleAgreement 
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaleAgreementAndProductTableAdapter" GeneratorDataComponentClassName="SaleAgreementAndProductTableAdapter" Name="SaleAgreementAndProduct" UserDataComponentName="SaleAgreementAndProductTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaleAgreementAndProductTableAdapter" GeneratorDataThisComponentClassName="SaleAgreementAndProductTableAdapter" Name="SaleAgreementAndProduct" UserDataThisComponentName="SaleAgreementAndProductTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.SaleAgreementAndProduct" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -589,7 +589,7 @@ SELECT Sale_agreement_number, Barcode, SAP_quantity, Is_returned FROM SaleAgreem
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TransportTableAdapter" GeneratorDataComponentClassName="TransportTableAdapter" Name="Transport" UserDataComponentName="TransportTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TransportTableAdapter" GeneratorDataThisComponentClassName="TransportTableAdapter" Name="Transport" UserDataThisComponentName="TransportTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.Transport" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -647,7 +647,7 @@ SELECT Auto_Number, Type, Price_Of_Petrol, Driver FROM Transport WHERE (Auto_Num
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TransportAndSaleAgreementTableAdapter" GeneratorDataComponentClassName="TransportAndSaleAgreementTableAdapter" Name="TransportAndSaleAgreement" UserDataComponentName="TransportAndSaleAgreementTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TransportAndSaleAgreementTableAdapter" GeneratorDataThisComponentClassName="TransportAndSaleAgreementTableAdapter" Name="TransportAndSaleAgreement" UserDataThisComponentName="TransportAndSaleAgreementTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.TransportAndSaleAgreement" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -695,7 +695,7 @@ SELECT Sale_agreement_number, Auto_Number FROM TransportAndSaleAgreement WHERE (
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsersTableAdapter" GeneratorDataComponentClassName="UsersTableAdapter" Name="Users" UserDataComponentName="UsersTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsersTableAdapter" GeneratorDataThisComponentClassName="UsersTableAdapter" Name="Users" UserDataThisComponentName="UsersTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.Users" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <InsertCommand>
@@ -721,7 +721,7 @@ SELECT Sale_agreement_number, Auto_Number FROM TransportAndSaleAgreement WHERE (
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RawPriceProductsTableAdapter" GeneratorDataComponentClassName="RawPriceProductsTableAdapter" Name="RawPriceProducts" UserDataComponentName="RawPriceProductsTableAdapter">
+          <TableAdapter BaseClass="System.ThisComponentModel.ThisComponent" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RawPriceProductsTableAdapter" GeneratorDataThisComponentClassName="RawPriceProductsTableAdapter" Name="RawPriceProducts" UserDataThisComponentName="RawPriceProductsTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="MeatFactoryConnectionString (Settings)" DbObjectName="MeatFactory.dbo.RawPriceProducts" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
@@ -802,46 +802,46 @@ SELECT Sale_agreement_number, Auto_Number FROM TransportAndSaleAgreement WHERE (
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Component" msprop:Generator_TableClassName="ComponentDataTable" msprop:Generator_TableVarName="tableComponent" msprop:Generator_RowChangedName="ComponentRowChanged" msprop:Generator_TablePropName="Component" msprop:Generator_RowDeletingName="ComponentRowDeleting" msprop:Generator_RowChangingName="ComponentRowChanging" msprop:Generator_RowEvHandlerName="ComponentRowChangeEventHandler" msprop:Generator_RowDeletedName="ComponentRowDeleted" msprop:Generator_RowClassName="ComponentRow" msprop:Generator_UserTableName="Component" msprop:Generator_RowEvArgName="ComponentRowChangeEvent">
+        <xs:element name="ThisComponent" msprop:Generator_TableClassName="ThisComponentDataTable" msprop:Generator_TableVarName="tableThisComponent" msprop:Generator_RowChangedName="ThisComponentRowChanged" msprop:Generator_TablePropName="ThisComponent" msprop:Generator_RowDeletingName="ThisComponentRowDeleting" msprop:Generator_RowChangingName="ThisComponentRowChanging" msprop:Generator_RowEvHandlerName="ThisComponentRowChangeEventHandler" msprop:Generator_RowDeletedName="ThisComponentRowDeleted" msprop:Generator_RowClassName="ThisComponentRow" msprop:Generator_UserTableName="ThisComponent" msprop:Generator_RowEvArgName="ThisComponentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Component_code" msprop:Generator_ColumnVarNameInTable="columnComponent_code" msprop:Generator_ColumnPropNameInRow="Component_code" msprop:Generator_ColumnPropNameInTable="Component_codeColumn" msprop:Generator_UserColumnName="Component_code">
+              <xs:element name="ThisComponent_code" msprop:Generator_ColumnVarNameInTable="columnThisComponent_code" msprop:Generator_ColumnPropNameInRow="ThisComponent_code" msprop:Generator_ColumnPropNameInTable="ThisComponent_codeColumn" msprop:Generator_UserColumnName="ThisComponent_code">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Component_name" msprop:Generator_ColumnVarNameInTable="columnComponent_name" msprop:Generator_ColumnPropNameInRow="Component_name" msprop:Generator_ColumnPropNameInTable="Component_nameColumn" msprop:Generator_UserColumnName="Component_name">
+              <xs:element name="ThisComponent_name" msprop:Generator_ColumnVarNameInTable="columnThisComponent_name" msprop:Generator_ColumnPropNameInRow="ThisComponent_name" msprop:Generator_ColumnPropNameInTable="ThisComponent_nameColumn" msprop:Generator_UserColumnName="ThisComponent_name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="60" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Component_type" msprop:Generator_ColumnVarNameInTable="columnComponent_type" msprop:Generator_ColumnPropNameInRow="Component_type" msprop:Generator_ColumnPropNameInTable="Component_typeColumn" msprop:Generator_UserColumnName="Component_type">
+              <xs:element name="ThisComponent_type" msprop:Generator_ColumnVarNameInTable="columnThisComponent_type" msprop:Generator_ColumnPropNameInRow="ThisComponent_type" msprop:Generator_ColumnPropNameInTable="ThisComponent_typeColumn" msprop:Generator_UserColumnName="ThisComponent_type">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Component_quantity" msprop:Generator_ColumnVarNameInTable="columnComponent_quantity" msprop:Generator_ColumnPropNameInRow="Component_quantity" msprop:Generator_ColumnPropNameInTable="Component_quantityColumn" msprop:Generator_UserColumnName="Component_quantity">
+              <xs:element name="ThisComponent_quantity" msprop:Generator_ColumnVarNameInTable="columnThisComponent_quantity" msprop:Generator_ColumnPropNameInRow="ThisComponent_quantity" msprop:Generator_ColumnPropNameInTable="ThisComponent_quantityColumn" msprop:Generator_UserColumnName="ThisComponent_quantity">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Component_price" msprop:Generator_ColumnVarNameInTable="columnComponent_price" msprop:Generator_ColumnPropNameInRow="Component_price" msprop:Generator_ColumnPropNameInTable="Component_priceColumn" msprop:Generator_UserColumnName="Component_price" type="xs:decimal" />
+              <xs:element name="ThisComponent_price" msprop:Generator_ColumnVarNameInTable="columnThisComponent_price" msprop:Generator_ColumnPropNameInRow="ThisComponent_price" msprop:Generator_ColumnPropNameInTable="ThisComponent_priceColumn" msprop:Generator_UserColumnName="ThisComponent_price" type="xs:decimal" />
               <xs:element name="Is_package" msprop:Generator_ColumnVarNameInTable="columnIs_package" msprop:Generator_ColumnPropNameInRow="Is_package" msprop:Generator_ColumnPropNameInTable="Is_packageColumn" msprop:Generator_UserColumnName="Is_package" type="xs:boolean" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ComponentAndProduct" msprop:Generator_TableClassName="ComponentAndProductDataTable" msprop:Generator_TableVarName="tableComponentAndProduct" msprop:Generator_RowChangedName="ComponentAndProductRowChanged" msprop:Generator_TablePropName="ComponentAndProduct" msprop:Generator_RowDeletingName="ComponentAndProductRowDeleting" msprop:Generator_RowChangingName="ComponentAndProductRowChanging" msprop:Generator_RowEvHandlerName="ComponentAndProductRowChangeEventHandler" msprop:Generator_RowDeletedName="ComponentAndProductRowDeleted" msprop:Generator_RowClassName="ComponentAndProductRow" msprop:Generator_UserTableName="ComponentAndProduct" msprop:Generator_RowEvArgName="ComponentAndProductRowChangeEvent">
+        <xs:element name="ThisComponentAndProduct" msprop:Generator_TableClassName="ThisComponentAndProductDataTable" msprop:Generator_TableVarName="tableThisComponentAndProduct" msprop:Generator_RowChangedName="ThisComponentAndProductRowChanged" msprop:Generator_TablePropName="ThisComponentAndProduct" msprop:Generator_RowDeletingName="ThisComponentAndProductRowDeleting" msprop:Generator_RowChangingName="ThisComponentAndProductRowChanging" msprop:Generator_RowEvHandlerName="ThisComponentAndProductRowChangeEventHandler" msprop:Generator_RowDeletedName="ThisComponentAndProductRowDeleted" msprop:Generator_RowClassName="ThisComponentAndProductRow" msprop:Generator_UserTableName="ThisComponentAndProduct" msprop:Generator_RowEvArgName="ThisComponentAndProductRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Component_code" msprop:Generator_ColumnVarNameInTable="columnComponent_code" msprop:Generator_ColumnPropNameInRow="Component_code" msprop:Generator_ColumnPropNameInTable="Component_codeColumn" msprop:Generator_UserColumnName="Component_code">
+              <xs:element name="ThisComponent_code" msprop:Generator_ColumnVarNameInTable="columnThisComponent_code" msprop:Generator_ColumnPropNameInRow="ThisComponent_code" msprop:Generator_ColumnPropNameInTable="ThisComponent_codeColumn" msprop:Generator_UserColumnName="ThisComponent_code">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />
@@ -974,10 +974,10 @@ SELECT Sale_agreement_number, Auto_Number FROM TransportAndSaleAgreement WHERE (
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PurchaseAgreementAndComponent" msprop:Generator_TableClassName="PurchaseAgreementAndComponentDataTable" msprop:Generator_TableVarName="tablePurchaseAgreementAndComponent" msprop:Generator_RowChangedName="PurchaseAgreementAndComponentRowChanged" msprop:Generator_TablePropName="PurchaseAgreementAndComponent" msprop:Generator_RowDeletingName="PurchaseAgreementAndComponentRowDeleting" msprop:Generator_RowChangingName="PurchaseAgreementAndComponentRowChanging" msprop:Generator_RowEvHandlerName="PurchaseAgreementAndComponentRowChangeEventHandler" msprop:Generator_RowDeletedName="PurchaseAgreementAndComponentRowDeleted" msprop:Generator_RowClassName="PurchaseAgreementAndComponentRow" msprop:Generator_UserTableName="PurchaseAgreementAndComponent" msprop:Generator_RowEvArgName="PurchaseAgreementAndComponentRowChangeEvent">
+        <xs:element name="PurchaseAgreementAndThisComponent" msprop:Generator_TableClassName="PurchaseAgreementAndThisComponentDataTable" msprop:Generator_TableVarName="tablePurchaseAgreementAndThisComponent" msprop:Generator_RowChangedName="PurchaseAgreementAndThisComponentRowChanged" msprop:Generator_TablePropName="PurchaseAgreementAndThisComponent" msprop:Generator_RowDeletingName="PurchaseAgreementAndThisComponentRowDeleting" msprop:Generator_RowChangingName="PurchaseAgreementAndThisComponentRowChanging" msprop:Generator_RowEvHandlerName="PurchaseAgreementAndThisComponentRowChangeEventHandler" msprop:Generator_RowDeletedName="PurchaseAgreementAndThisComponentRowDeleted" msprop:Generator_RowClassName="PurchaseAgreementAndThisComponentRow" msprop:Generator_UserTableName="PurchaseAgreementAndThisComponent" msprop:Generator_RowEvArgName="PurchaseAgreementAndThisComponentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Component_сode" msprop:Generator_ColumnVarNameInTable="columnComponent_сode" msprop:Generator_ColumnPropNameInRow="Component_сode" msprop:Generator_ColumnPropNameInTable="Component_сodeColumn" msprop:Generator_UserColumnName="Component_сode">
+              <xs:element name="ThisComponent_сode" msprop:Generator_ColumnVarNameInTable="columnThisComponent_сode" msprop:Generator_ColumnPropNameInRow="ThisComponent_сode" msprop:Generator_ColumnPropNameInTable="ThisComponent_сodeColumn" msprop:Generator_UserColumnName="ThisComponent_сode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />
@@ -1146,13 +1146,13 @@ SELECT Sale_agreement_number, Auto_Number FROM TransportAndSaleAgreement WHERE (
       <xs:selector xpath=".//mstns:Buyer" />
       <xs:field xpath="mstns:EDRPOU_buyer" />
     </xs:unique>
-    <xs:unique name="Component_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Component" />
-      <xs:field xpath="mstns:Component_code" />
+    <xs:unique name="ThisComponent_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ThisComponent" />
+      <xs:field xpath="mstns:ThisComponent_code" />
     </xs:unique>
-    <xs:unique name="ComponentAndProduct_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ComponentAndProduct" />
-      <xs:field xpath="mstns:Component_code" />
+    <xs:unique name="ThisComponentAndProduct_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ThisComponentAndProduct" />
+      <xs:field xpath="mstns:ThisComponent_code" />
       <xs:field xpath="mstns:Barcode" />
     </xs:unique>
     <xs:unique name="Privisioner_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
@@ -1167,9 +1167,9 @@ SELECT Sale_agreement_number, Auto_Number FROM TransportAndSaleAgreement WHERE (
       <xs:selector xpath=".//mstns:PurchaseAgreement" />
       <xs:field xpath="mstns:Purchase_agreement_number" />
     </xs:unique>
-    <xs:unique name="PurchaseAgreementAndComponent_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:PurchaseAgreementAndComponent" />
-      <xs:field xpath="mstns:Component_сode" />
+    <xs:unique name="PurchaseAgreementAndThisComponent_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PurchaseAgreementAndThisComponent" />
+      <xs:field xpath="mstns:ThisComponent_сode" />
       <xs:field xpath="mstns:Purchase_agreement_number" />
     </xs:unique>
     <xs:unique name="SaleAgreement_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
@@ -1193,11 +1193,11 @@ SELECT Sale_agreement_number, Auto_Number FROM TransportAndSaleAgreement WHERE (
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_ComponentAndProduct_Component1" msdata:parent="Component" msdata:child="ComponentAndProduct" msdata:parentkey="Component_code" msdata:childkey="Component_code" msprop:Generator_UserChildTable="ComponentAndProduct" msprop:Generator_ChildPropName="GetComponentAndProductRows" msprop:Generator_UserRelationName="FK_ComponentAndProduct_Component1" msprop:Generator_RelationVarName="relationFK_ComponentAndProduct_Component1" msprop:Generator_UserParentTable="Component" msprop:Generator_ParentPropName="ComponentRow" />
-      <msdata:Relationship name="FK_ComponentAndProduct_Product" msdata:parent="Product" msdata:child="ComponentAndProduct" msdata:parentkey="Barcode" msdata:childkey="Barcode" msprop:Generator_UserChildTable="ComponentAndProduct" msprop:Generator_ChildPropName="GetComponentAndProductRows" msprop:Generator_UserRelationName="FK_ComponentAndProduct_Product" msprop:Generator_ParentPropName="ProductRow" msprop:Generator_RelationVarName="relationFK_ComponentAndProduct_Product" msprop:Generator_UserParentTable="Product" />
+      <msdata:Relationship name="FK_ThisComponentAndProduct_ThisComponent1" msdata:parent="ThisComponent" msdata:child="ThisComponentAndProduct" msdata:parentkey="ThisComponent_code" msdata:childkey="ThisComponent_code" msprop:Generator_UserChildTable="ThisComponentAndProduct" msprop:Generator_ChildPropName="GetThisComponentAndProductRows" msprop:Generator_UserRelationName="FK_ThisComponentAndProduct_ThisComponent1" msprop:Generator_RelationVarName="relationFK_ThisComponentAndProduct_ThisComponent1" msprop:Generator_UserParentTable="ThisComponent" msprop:Generator_ParentPropName="ThisComponentRow" />
+      <msdata:Relationship name="FK_ThisComponentAndProduct_Product" msdata:parent="Product" msdata:child="ThisComponentAndProduct" msdata:parentkey="Barcode" msdata:childkey="Barcode" msprop:Generator_UserChildTable="ThisComponentAndProduct" msprop:Generator_ChildPropName="GetThisComponentAndProductRows" msprop:Generator_UserRelationName="FK_ThisComponentAndProduct_Product" msprop:Generator_ParentPropName="ProductRow" msprop:Generator_RelationVarName="relationFK_ThisComponentAndProduct_Product" msprop:Generator_UserParentTable="Product" />
       <msdata:Relationship name="FK_PurchaseAgreement_Privisioner" msdata:parent="Privisioner" msdata:child="PurchaseAgreement" msdata:parentkey="EDRPOU_provisioner" msdata:childkey="EDRPOU_provisioner" msprop:Generator_UserChildTable="PurchaseAgreement" msprop:Generator_ChildPropName="GetPurchaseAgreementRows" msprop:Generator_UserRelationName="FK_PurchaseAgreement_Privisioner" msprop:Generator_RelationVarName="relationFK_PurchaseAgreement_Privisioner" msprop:Generator_UserParentTable="Privisioner" msprop:Generator_ParentPropName="PrivisionerRow" />
-      <msdata:Relationship name="FK_PurchaseAgreementAndComponent_Component" msdata:parent="Component" msdata:child="PurchaseAgreementAndComponent" msdata:parentkey="Component_code" msdata:childkey="Component_сode" msprop:Generator_UserChildTable="PurchaseAgreementAndComponent" msprop:Generator_ChildPropName="GetPurchaseAgreementAndComponentRows" msprop:Generator_UserRelationName="FK_PurchaseAgreementAndComponent_Component" msprop:Generator_RelationVarName="relationFK_PurchaseAgreementAndComponent_Component" msprop:Generator_UserParentTable="Component" msprop:Generator_ParentPropName="ComponentRow" />
-      <msdata:Relationship name="FK_PurchaseAgreementAndComponent_PurchaseAgreement" msdata:parent="PurchaseAgreement" msdata:child="PurchaseAgreementAndComponent" msdata:parentkey="Purchase_agreement_number" msdata:childkey="Purchase_agreement_number" msprop:Generator_UserChildTable="PurchaseAgreementAndComponent" msprop:Generator_ChildPropName="GetPurchaseAgreementAndComponentRows" msprop:Generator_UserRelationName="FK_PurchaseAgreementAndComponent_PurchaseAgreement" msprop:Generator_RelationVarName="relationFK_PurchaseAgreementAndComponent_PurchaseAgreement" msprop:Generator_UserParentTable="PurchaseAgreement" msprop:Generator_ParentPropName="PurchaseAgreementRow" />
+      <msdata:Relationship name="FK_PurchaseAgreementAndThisComponent_ThisComponent" msdata:parent="ThisComponent" msdata:child="PurchaseAgreementAndThisComponent" msdata:parentkey="ThisComponent_code" msdata:childkey="ThisComponent_сode" msprop:Generator_UserChildTable="PurchaseAgreementAndThisComponent" msprop:Generator_ChildPropName="GetPurchaseAgreementAndThisComponentRows" msprop:Generator_UserRelationName="FK_PurchaseAgreementAndThisComponent_ThisComponent" msprop:Generator_RelationVarName="relationFK_PurchaseAgreementAndThisComponent_ThisComponent" msprop:Generator_UserParentTable="ThisComponent" msprop:Generator_ParentPropName="ThisComponentRow" />
+      <msdata:Relationship name="FK_PurchaseAgreementAndThisComponent_PurchaseAgreement" msdata:parent="PurchaseAgreement" msdata:child="PurchaseAgreementAndThisComponent" msdata:parentkey="Purchase_agreement_number" msdata:childkey="Purchase_agreement_number" msprop:Generator_UserChildTable="PurchaseAgreementAndThisComponent" msprop:Generator_ChildPropName="GetPurchaseAgreementAndThisComponentRows" msprop:Generator_UserRelationName="FK_PurchaseAgreementAndThisComponent_PurchaseAgreement" msprop:Generator_RelationVarName="relationFK_PurchaseAgreementAndThisComponent_PurchaseAgreement" msprop:Generator_UserParentTable="PurchaseAgreement" msprop:Generator_ParentPropName="PurchaseAgreementRow" />
       <msdata:Relationship name="FK_SaleAgreement_Buyer" msdata:parent="Buyer" msdata:child="SaleAgreement" msdata:parentkey="EDRPOU_buyer" msdata:childkey="EDRPOU_buyer" msprop:Generator_UserChildTable="SaleAgreement" msprop:Generator_ChildPropName="GetSaleAgreementRows" msprop:Generator_UserRelationName="FK_SaleAgreement_Buyer" msprop:Generator_RelationVarName="relationFK_SaleAgreement_Buyer" msprop:Generator_UserParentTable="Buyer" msprop:Generator_ParentPropName="BuyerRow" />
       <msdata:Relationship name="FK_SaleAgreementAndProduct_Product" msdata:parent="Product" msdata:child="SaleAgreementAndProduct" msdata:parentkey="Barcode" msdata:childkey="Barcode" msprop:Generator_UserChildTable="SaleAgreementAndProduct" msprop:Generator_ChildPropName="GetSaleAgreementAndProductRows" msprop:Generator_UserRelationName="FK_SaleAgreementAndProduct_Product" msprop:Generator_RelationVarName="relationFK_SaleAgreementAndProduct_Product" msprop:Generator_UserParentTable="Product" msprop:Generator_ParentPropName="ProductRow" />
       <msdata:Relationship name="FK_SaleAgreementAndProduct_SaleAgreement" msdata:parent="SaleAgreement" msdata:child="SaleAgreementAndProduct" msdata:parentkey="Sale_agreement_number" msdata:childkey="Sale_agreement_number" msprop:Generator_UserChildTable="SaleAgreementAndProduct" msprop:Generator_ChildPropName="GetSaleAgreementAndProductRows" msprop:Generator_UserRelationName="FK_SaleAgreementAndProduct_SaleAgreement" msprop:Generator_RelationVarName="relationFK_SaleAgreementAndProduct_SaleAgreement" msprop:Generator_UserParentTable="SaleAgreement" msprop:Generator_ParentPropName="SaleAgreementRow" />
