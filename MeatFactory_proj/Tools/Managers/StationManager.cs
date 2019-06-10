@@ -13,5 +13,7 @@ namespace MeatFactory_proj.Tools.Managers
         public static PasswordBox Password { get; set; }
 
         public static User CurrentUser { get; set; }
+
+        public static Product CurrentProduct { get; set; }
     }
 }

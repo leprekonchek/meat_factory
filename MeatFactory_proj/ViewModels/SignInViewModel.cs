@@ -9,6 +9,11 @@ namespace MeatFactory_proj.ViewModels
 {
     internal class SignInViewModel : INotifyPropertyChanged
     {
+        public SignInViewModel()
+        {
+            Login = "dima";
+        }
+
         #region Commands
 
         private RelayCommand<object> _signInCommand;

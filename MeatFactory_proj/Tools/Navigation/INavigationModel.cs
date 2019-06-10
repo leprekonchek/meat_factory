@@ -5,6 +5,7 @@
         StartView,
         ProductView,
         ProductsAndComponentsView,
+        AddProductView,
     }
 
     interface INavigationModel

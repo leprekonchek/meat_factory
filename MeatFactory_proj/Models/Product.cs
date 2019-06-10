@@ -2,7 +2,9 @@
 
 namespace MeatFactory_proj.Models
 {
-    class Product
+    // Barcode, Name, Type, Quantity, Weight, MeasureType, Price, ExpirationDate
+    // Barcode, Product_name, Product_type, Product_quantity, Weight, Product_measure_type, Product_price, Expiration_date
+    class Product 
     {
         public string Barcode { get; set; }
         public string Name { get; set; }
@@ -12,6 +14,5 @@ namespace MeatFactory_proj.Models
         public string MeasureType { get; set; }
         public decimal Price { get; set; }
         public DateTime ExpirationDate { get; set; }
-
     }
 }
