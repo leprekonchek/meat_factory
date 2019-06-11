@@ -1,9 +1,8 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using MeatFactory_proj.Tools;
 
 namespace MeatFactory_proj.ViewModels
 {
-    internal class MainViewModel : INotifyPropertyChanged
+    internal class MainViewModel : PropertyChangedVM
     {
         private bool _isControlEnabled = true;
 
@@ -18,16 +17,5 @@ namespace MeatFactory_proj.ViewModels
         }
 
         internal MainViewModel() { }
-
-        #region INotifyPropertyChanged
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion
     }
 }
