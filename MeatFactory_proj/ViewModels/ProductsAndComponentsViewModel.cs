@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using MeatFactory_proj.Models;
 using MeatFactory_proj.Tools;
 using MeatFactory_proj.Tools.Managers;
@@ -12,7 +13,7 @@ namespace MeatFactory_proj.ViewModels
     {
         #region Fields and Commands
 
-        private Product _selectedProduct;
+        private Product _selectedProductRecipe;
 
         private RelayCommand<object> _addProductCommand;
         private RelayCommand<object> _editProductCommand;
@@ -27,21 +28,29 @@ namespace MeatFactory_proj.ViewModels
         #region Properties
 
         public List<Product> Products { get; set; }
+        public List<Product> ProductsRecipe { get; set; }
         public List<Component> Components { get; set; }
-
+        public List<Component> ComponentsRecipe { get; set; }
 
         public Component SelectedComponent { get; set; }
-        public Product SelectedProduct
+        public Product SelectedProduct { get; set; }
+
+        public Product SelectedProductRecipe
         {
-            get => _selectedProduct;
+            get => _selectedProductRecipe;
             set
             {
-                _selectedProduct = value;
-                UpdateComponentsListSelect();
+                _selectedProductRecipe = value;
+                UpdateComponentsRecipeList();
             }
         }
-        
-        public ProductsAndComponentsViewModel() { Products = StationManager.DataStorage.selectAllProducts(); }
+
+        public ProductsAndComponentsViewModel()
+        {
+            Products = StationManager.DataStorage.selectAllProducts();
+            ProductsRecipe = StationManager.DataStorage.selectProductNameType();
+            Components = StationManager.DataStorage.selectAllComponents();
+        }
 
         // products commands
         public RelayCommand<object> AddProduct =>
@@ -122,12 +131,6 @@ namespace MeatFactory_proj.ViewModels
         private bool CanExecuteProduct() => SelectedProduct != null;
         private bool CanExecuteComponent() => SelectedComponent != null;
 
-        public void UpdateComponentsListSelect()
-        {
-            if (SelectedProduct != null) Components = StationManager.DataStorage.selectComponentByProductId(SelectedProduct.Barcode);
-            OnPropertyChanged("Components");
-        }
-
         public void UpdateComponentsList()
         {
             Components = StationManager.DataStorage.selectAllComponents();
@@ -138,6 +141,12 @@ namespace MeatFactory_proj.ViewModels
         {
             Products = StationManager.DataStorage.selectAllProducts();
             OnPropertyChanged("Products");
+        }
+
+        public void UpdateComponentsRecipeList()
+        {
+            if (SelectedProductRecipe != null) ComponentsRecipe = StationManager.DataStorage.selectComponentByProductId(SelectedProductRecipe.Barcode);
+            OnPropertyChanged("ComponentsRecipe");
         }
     }
 }

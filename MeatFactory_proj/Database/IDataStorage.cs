@@ -17,14 +17,18 @@ namespace MeatFactory_proj.Database
         bool userExists(String login);
         String getPassword(string login);
         User getUser(string login);
-        void insertNewUser(string login, string password);
+        void insertNewUser(string login, string password, string role);
 
         // component
         List<Component> selectComponentByProductId(string barcode);
+        void insertNewComponent(Component component);
+        void updateComponent(Component component);
+        void deleteComponent(string code);
 
         // product
         void insertNewProduct(Product product);
         void updateProduct(Product product);
         void deleteProduct(string barcode);
+        List<Product> selectProductNameType();
     }
 }

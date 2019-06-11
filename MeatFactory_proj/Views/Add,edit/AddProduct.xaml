@@ -53,13 +53,13 @@
         <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Product.Weight, Mode=TwoWay}"></TextBox>
 
         <Label Content="Тип ваги" Grid.Row="4" Grid.Column="3"></Label>
-        <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding Product.MeasureType, Mode=TwoWay}"></TextBox>
+        <ComboBox Grid.Row="5" Grid.Column="3" ItemsSource="{Binding MeasureTypes}" SelectedItem="{Binding Product.MeasureType}"></ComboBox>
 
         <Label Content="Ціна" Grid.Row="7" Grid.Column="3"></Label>
         <TextBox Grid.Row="8" Grid.Column="3" Text="{Binding Product.Price, Mode=TwoWay}"></TextBox>
 
         <Label Content="Дата виготовлення" Grid.Row="10" Grid.Column="3"></Label>
-        <TextBox Grid.Row="11" Grid.Column="3" Text="{Binding Product.ExpirationDate, Mode=TwoWay}"></TextBox>
+        <DatePicker Grid.Row="11" Grid.Column="3" Text="{Binding Product.ExpirationDate, Mode=TwoWay}"></DatePicker>
 
         <Button Grid.Row="14" Grid.Column="1" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=AddProductW}">Зберегти</Button>
         <Button Grid.Row="14" Grid.Column="3" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=AddProductW}">Скасувати</Button>

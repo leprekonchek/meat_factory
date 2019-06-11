@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Input;
 using MeatFactory_proj.Models;
 using MeatFactory_proj.Tools;
@@ -13,7 +15,9 @@ namespace MeatFactory_proj.ViewModels
 
         public Product Product { get; set; }
         private bool AddProduct { get; }
-        
+        public List<String> MeasureTypes { get; set; }
+
+
         private ICommand _saveCommand;
         private ICommand _cancelCommand;
 
@@ -23,6 +27,7 @@ namespace MeatFactory_proj.ViewModels
         {
             Product = StationManager.CurrentProduct;
             AddProduct = Product.Barcode == null;
+            MeasureTypes = new List<string> { "кг", "шт" };
         }
 
         public ICommand CancelCommand => _cancelCommand ?? (_cancelCommand = new RelayCommand<Window>(w => w?.Close()));

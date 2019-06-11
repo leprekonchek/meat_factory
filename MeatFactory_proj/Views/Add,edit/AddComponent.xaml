@@ -34,7 +34,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="Код" Grid.Row="1" Grid.Column="1"></Label>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Component.Сode, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Component.Code, Mode=TwoWay}"></TextBox>
 
         <Label Content="Назва" Grid.Row="4" Grid.Column="1"></Label>
         <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Component.Name, Mode=TwoWay}"></TextBox>
@@ -44,13 +44,13 @@
 
 
         <Label Content="Кількість" Grid.Row="1" Grid.Column="3"></Label>
-        <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Product.Quantity, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Component.Quantity, Mode=TwoWay}"></TextBox>
 
         <Label Content="Ціна" Grid.Row="4" Grid.Column="3"></Label>
-        <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding Product.Price, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding Component.Price, Mode=TwoWay}"></TextBox>
 
         <Label Content="Це упаковка?" Grid.Row="7" Grid.Column="3"></Label>
-        <CheckBox Grid.Row="7" Grid.Column="3" Content="{Binding Product.IsPackage, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <CheckBox Grid.Row="7" Grid.Column="3" Content="{Binding Component.IsPackage, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
 
         <Button Grid.Row="14" Grid.Column="1" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=AddComponentW}">Зберегти</Button>
         <Button Grid.Row="14" Grid.Column="3" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=AddComponentW}">Скасувати</Button>
