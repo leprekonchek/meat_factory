@@ -70,6 +70,7 @@
     <Compile Include="Tools\Navigation\NavigationModel.cs" />
     <Compile Include="Tools\PropertyChanged.cs" />
     <Compile Include="Tools\RelayCommand.cs" />
+    <Compile Include="ViewModels\Add, edit\AddComponentToRecipeViewModel.cs" />
     <Compile Include="ViewModels\Add, edit\AddComponentViewModel.cs" />
     <Compile Include="ViewModels\Add, edit\AddProductViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -79,6 +80,9 @@
     <Compile Include="ViewModels\SignInViewModel.cs" />
     <Compile Include="Views\Add,edit\AddComponent.xaml.cs">
       <DependentUpon>AddComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Add,edit\AddComponentToRecipe.xaml.cs">
+      <DependentUpon>AddComponentToRecipe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Add,edit\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
@@ -110,6 +114,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Add,edit\AddComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Add,edit\AddComponentToRecipe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

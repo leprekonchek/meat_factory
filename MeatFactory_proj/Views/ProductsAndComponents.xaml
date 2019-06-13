@@ -61,19 +61,20 @@
                 <ColumnDefinition Width="0.4*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="1" Text="Додати нову компоненту до складу рецепту продукту" TextWrapping="Wrap" Margin="1"></TextBlock>
-            <Button Grid.Row="1" Grid.Column="1" Height="30">Додати</Button>
+            <Button Grid.Row="1" Grid.Column="1" Height="30" Command="{Binding AddComponentToRecipe}">Додати</Button>
             <TextBlock Grid.Row="3" Text="Видалити компоненту із складу рецепту продукту" TextWrapping="Wrap" Margin="1"></TextBlock>
-            <Button Grid.Row="3" Grid.Column="1" Height="30">Видалити</Button>
+            <Button Grid.Row="3" Grid.Column="1" Height="30" Command="{Binding DeleteComponentFromRecipe}">Видалити</Button>
         </Grid>
 
         <TextBlock Text="Список компонент обранного продукту" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
         <DataGrid ItemsSource="{Binding ComponentsRecipe}" 
+                  SelectedItem="{Binding SelectedComponentRecipe}"
                   Grid.Column="5" Grid.ColumnSpan="3" Grid.Row="2"
                   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Назва" Binding="{Binding Name}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Тип" Binding="{Binding Type}" Width="*"></DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Упаковка" Binding="{Binding IsPackage}" Width="*"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Назва" Binding="{Binding Name}" Width="0.45*" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Type}" Width="0.3*"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Упаковка" Binding="{Binding IsPackage}" Width="0.25*"></DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -85,11 +86,11 @@
                 <DataGridTextColumn Header="Штрихкод" Binding="{Binding Barcode}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Назва" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Тип" Binding="{Binding Type}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Кількість" Binding="{Binding Quantity}"></DataGridTextColumn>
+                <DataGridTextColumn Header="К-сть" Binding="{Binding Quantity}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Вага" Binding="{Binding Weight}"></DataGridTextColumn>
                 <DataGridTextColumn Header="кг/шт" Binding="{Binding MeasureType}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Ціна" Binding="{Binding Price}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Дата виготовлення" Binding="{Binding ExpirationDate}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата виготовлення" Binding="{Binding Date}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -99,9 +100,12 @@
                   SelectedItem="{Binding SelectedComponent}" Grid.Column="7" Grid.ColumnSpan="5" Grid.Row="5"
                   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Назва" Binding="{Binding Name}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Тип" Binding="{Binding Type}" Width="*"></DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Упаковка" Binding="{Binding IsPackage}" Width="*"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Код" Binding="{Binding Code}" Width="0.1*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Назва" Binding="{Binding Name}" Width="0.3*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Type}" Width="0.15*"></DataGridTextColumn>
+                <DataGridTextColumn Header="К-сть" Binding="{Binding Quantity}" Width="0.1*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ціна" Binding="{Binding Price}" Width="0.2*"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Упаковка" Binding="{Binding IsPackage}" Width="0.15*"></DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -109,7 +113,7 @@
 
         <Button Grid.Row="7" Grid.Column="1" Command="{Binding AddProduct}">Додати</Button>
         <Button Grid.Row="7" Grid.Column="3" Command="{Binding EditProduct}">Редагувати</Button>
-        <Button Grid.Row="7" Grid.Column="5" Command="{Binding DeleteProduct}">ВИдалити</Button>
+        <Button Grid.Row="7" Grid.Column="5" Command="{Binding DeleteProduct}">Видалити</Button>
 
         <Button Grid.Row="7" Grid.Column="7" Command="{Binding AddComponent}">Додати</Button>
         <Button Grid.Row="7" Grid.Column="9" Command="{Binding EditComponent}">Редагувати</Button>

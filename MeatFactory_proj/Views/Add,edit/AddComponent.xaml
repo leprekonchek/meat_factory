@@ -50,7 +50,12 @@
         <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding Component.Price, Mode=TwoWay}"></TextBox>
 
         <Label Content="Це упаковка?" Grid.Row="7" Grid.Column="3"></Label>
-        <CheckBox Grid.Row="7" Grid.Column="3" Content="{Binding Component.IsPackage, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <TextBox  Grid.Row="7" Grid.Column="3" Width="130" HorizontalAlignment="Right" Text="{Binding Component.IsPackage, Mode=TwoWay}"></TextBox>
+        <!--<Label Content="Так" Grid.Row="7" Grid.Column="3" Margin="90,1,1,1"></Label>
+        <Label Content="Ні" Grid.Row="7" Grid.Column="3" Margin="140,1,1,1"></Label>
+        <RadioButton Grid.Row="7" Grid.Column="3" Margin="115,8,1,7" Name="RadioButton1" Content="{Binding Component.IsPackage, Mode=TwoWay}"></RadioButton>
+        <RadioButton Grid.Row="7" Grid.Column="3" Margin="160,8,1,7" Name="RadioButton2" Content="{Binding Component.IsPackage, Mode=TwoWay}"></RadioButton>
+        <CheckBox Grid.Row="7" Grid.Column="3" Content="{Binding Component.IsPackage, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>-->
 
         <Button Grid.Row="14" Grid.Column="1" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=AddComponentW}">Зберегти</Button>
         <Button Grid.Row="14" Grid.Column="3" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=AddComponentW}">Скасувати</Button>
