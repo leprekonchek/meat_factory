@@ -60,6 +60,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MeatFactoryDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\PurchaseAgreement.cs" />
+    <Compile Include="Models\SaleAgreement.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Tools\Managers\NavigationManager.cs" />
     <Compile Include="Tools\Managers\StationManager.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="ViewModels\Add, edit\AddComponentToRecipeViewModel.cs" />
     <Compile Include="ViewModels\Add, edit\AddComponentViewModel.cs" />
     <Compile Include="ViewModels\Add, edit\AddProductViewModel.cs" />
+    <Compile Include="ViewModels\BuyerAndProvisionerViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\NavBarViewModel.cs" />
     <Compile Include="ViewModels\ProductsAndComponentsViewModel.cs" />
@@ -86,6 +89,9 @@
     </Compile>
     <Compile Include="Views\Add,edit\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BuyerAndProvisioner.xaml.cs">
+      <DependentUpon>BuyerAndProvisioner.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NavBarView.xaml.cs">
       <DependentUpon>NavBarView.xaml</DependentUpon>
@@ -122,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Add,edit\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BuyerAndProvisioner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -33,7 +33,7 @@ namespace MeatFactory_proj.ViewModels.Add__edit
         public ICommand CancelCommand => _cancelCommand ?? (_cancelCommand = new RelayCommand<Window>(w => w?.Close()));
         public ICommand SaveCommand => _saveCommand ?? (_saveCommand = new RelayCommand<Window>(SaveImplementation, o => CanExecute()));
 
-        public bool CanExecute() => !String.IsNullOrEmpty(Component.Name) && !String.IsNullOrEmpty(Product.Name);
+        public bool CanExecute() => !String.IsNullOrEmpty(Component.Name);
 
         private void SaveImplementation(Window win)
         {

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Input;
 using MeatFactory_proj.Tools;
 using MeatFactory_proj.Tools.Managers;
@@ -23,7 +25,7 @@ namespace MeatFactory_proj.ViewModels
         #endregion
 
         #region Properties
-
+        public List<string> Roles { get; set; } = new List<string> { "Технолог", "Бухгалтер", "Адміністратор" };
         public string Login { get; set; }
         public string Role { get; set; }
 
@@ -39,8 +41,7 @@ namespace MeatFactory_proj.ViewModels
 
         private void SignInImplementation()
         {
-            bool exists = StationManager.DataStorage.userExists(Login);
-            if (exists)
+            if (StationManager.DataStorage.userExists(Login))
             {
                 string passwordDB = StationManager.DataStorage.getPassword(Login);
 
@@ -54,9 +55,28 @@ namespace MeatFactory_proj.ViewModels
                 {
                     StationManager.CurrentUser = StationManager.DataStorage.getUser(Login);
                     //NavigationManager.Instance.Navigate(ViewType.ProductsAndComponentsView);
-                    ProductsAndComponents win = new ProductsAndComponents();
+                    Role = StationManager.CurrentUser.Role;
+                    switch (Role)
+                    {
+                        case "Технолог":
+                            ProductsAndComponents win1 = new ProductsAndComponents();
+                            win1?.Show();
+                            break;
+                        case "Бухгалтер":
+                            BuyerAndProvisioner win2 = new BuyerAndProvisioner();
+                            win2?.Show();
+                            break;
+                        case "Адміністратор":
+                            ProductsAndComponents window1 = new ProductsAndComponents();
+                            window1?.Show();
+                            BuyerAndProvisioner window2 = new BuyerAndProvisioner();
+                            window2?.Show();
+                            break;
+                        default:
+                            MessageBox.Show("User has no role!");
+                            break;
+                    }
                     Application.Current.Windows[0]?.Close();
-                    win?.Show();
                 }
                 else { MessageBox.Show("Password is not correct"); }
             }

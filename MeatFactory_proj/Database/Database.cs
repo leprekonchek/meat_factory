@@ -418,7 +418,7 @@ namespace MeatFactory_proj.Database
                 connection.Open();
 
                 SqlCommand query = new SqlCommand(
-                $"INSERT INTO Users (Login, Password, Role) VALUES ('{login}', '{password}', '{role}')", connection);
+                $"INSERT INTO Users (Login, Password, Role) VALUES ('{login}', N'{password}', N'{role}')", connection);
                 query.ExecuteNonQuery();
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
