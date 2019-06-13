@@ -14,5 +14,7 @@ namespace MeatFactory_proj.Tools.Managers
         public static User CurrentUser { get; set; }
         public static Product CurrentProduct { get; set; }
         public static Component CurrentComponent { get; set; }
+        public static Component CurrentComponentRecipe { get; set; }
+        public static Product CurrentProductRecipe { get; set; }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 using MeatFactory_proj.Models;
 using MeatFactory_proj.Tools;
 using MeatFactory_proj.Tools.Managers;
@@ -14,14 +13,17 @@ namespace MeatFactory_proj.ViewModels
         #region Fields and Commands
 
         private Product _selectedProductRecipe;
-
+        // products
         private RelayCommand<object> _addProductCommand;
         private RelayCommand<object> _editProductCommand;
         private RelayCommand<object> _deleteProductCommand;
-
+        // components
         private RelayCommand<object> _addComponentCommand;
         private RelayCommand<object> _editComponentCommand;
         private RelayCommand<object> _deleteComponentCommand;
+        // recipe
+        private RelayCommand<object> _addComponentToRecipeCommand;
+        private RelayCommand<object> _deleteComponentFromRecipeCommand;
 
         #endregion
 
@@ -35,6 +37,7 @@ namespace MeatFactory_proj.ViewModels
         public Component SelectedComponent { get; set; }
         public Product SelectedProduct { get; set; }
 
+        public Component SelectedComponentRecipe { get; set; }
         public Product SelectedProductRecipe
         {
             get => _selectedProductRecipe;
@@ -52,6 +55,13 @@ namespace MeatFactory_proj.ViewModels
             Components = StationManager.DataStorage.selectAllComponents();
         }
 
+        // recipe commands
+        public RelayCommand<object> AddComponentToRecipe =>
+            _addComponentToRecipeCommand ?? (_addComponentToRecipeCommand = new RelayCommand<object>(o => AddComponentToRecipeImplementation()));
+
+        public RelayCommand<object> DeleteComponentFromRecipe =>
+            _deleteComponentFromRecipeCommand ?? (_deleteComponentFromRecipeCommand = new RelayCommand<object>(o => DeleteComponentFromRecipeImplementation(), o => CanExecuteRecipe()));
+        
         // products commands
         public RelayCommand<object> AddProduct =>
             _addProductCommand ?? (_addProductCommand = new RelayCommand<object>(o => AddProductImplementation()));
@@ -73,6 +83,25 @@ namespace MeatFactory_proj.ViewModels
             _deleteComponentCommand ?? (_deleteComponentCommand = new RelayCommand<object>(o => DeleteComponentImplementation(), o => CanExecuteComponent()));
 
         #endregion
+
+        // RECIPES
+        private void AddComponentToRecipeImplementation()
+        {
+            StationManager.CurrentComponentRecipe = new Component();
+            StationManager.CurrentProductRecipe = SelectedProductRecipe;
+            AddComponentToRecipe win = new AddComponentToRecipe();
+            win.ShowDialog();
+            UpdateComponentsRecipeList();
+        }
+
+        private void DeleteComponentFromRecipeImplementation()
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure?",
+                $"Delete this component {SelectedComponentRecipe.Name} from this product {SelectedProductRecipe.Name} recipe?", 
+                MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteComponentFromRecipe(SelectedComponentRecipe.Code, SelectedProductRecipe.Barcode);
+            UpdateComponentsRecipeList();
+        }
 
         // PRODUCTS
         private void AddProductImplementation()
@@ -130,6 +159,7 @@ namespace MeatFactory_proj.ViewModels
 
         private bool CanExecuteProduct() => SelectedProduct != null;
         private bool CanExecuteComponent() => SelectedComponent != null;
+        private bool CanExecuteRecipe() => SelectedProductRecipe != null && SelectedComponentRecipe != null;
 
         public void UpdateComponentsList()
         {
@@ -140,12 +170,14 @@ namespace MeatFactory_proj.ViewModels
         public void UpdateProductsList()
         {
             Products = StationManager.DataStorage.selectAllProducts();
+            ProductsRecipe = StationManager.DataStorage.selectAllProducts();
             OnPropertyChanged("Products");
+            OnPropertyChanged("ProductsRecipe");
         }
 
         public void UpdateComponentsRecipeList()
         {
-            if (SelectedProductRecipe != null) ComponentsRecipe = StationManager.DataStorage.selectComponentByProductId(SelectedProductRecipe.Barcode);
+            /*if (SelectedProductRecipe != null) */ComponentsRecipe = StationManager.DataStorage.selectComponentByProductId(SelectedProductRecipe.Barcode);
             OnPropertyChanged("ComponentsRecipe");
         }
     }

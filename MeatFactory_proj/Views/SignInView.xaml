@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MeatFactory_proj.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="450">
+             mc:Ignorable="d"
+             d:DesignHeight="350" d:DesignWidth="450">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"></ColumnDefinition>
@@ -19,27 +19,27 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="15"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <!-- Login -->
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Login:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20"/>
-        <TextBox Grid.Row="1" Grid.Column="3" FontSize="20" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Login:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17"/>
+        <TextBox Grid.Row="1" Grid.Column="3" FontSize="15" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
         <!-- Password -->
-        <TextBlock Grid.Row="3" Grid.Column="1" Text="Password:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20"/>
-        <PasswordBox Grid.Row="3" Grid.Column="3" Name="PasswordBox" FontSize="20"></PasswordBox>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="Password:" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="17"/>
+        <PasswordBox Grid.Row="3" Grid.Column="3" Name="PasswordBox" FontSize="15"></PasswordBox>
 
         <!-- Buttons -->
         <Button Background="Azure" Grid.Row="5" Grid.Column="3" 
-                Height="35" HorizontalAlignment="Center" FontSize="20"
+                FontSize="15"
                 Command="{Binding SignInCommand}">Ввійти</Button>
         <Button Background="Azure" Grid.Row="7" Grid.Column="3" 
-                Height="35"  HorizontalAlignment="Center" FontSize="20"
+                FontSize="15"
                 Command="{Binding SignUpCommand}">Зареєструватись</Button>
     </Grid>
 </UserControl>
