@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows;
 using MeatFactory_proj.Models;
 using MeatFactory_proj.Tools;
@@ -10,88 +8,207 @@ using Component = MeatFactory_proj.Models.Component;
 
 namespace MeatFactory_proj.ViewModels
 {
-    class ProductsAndComponentsViewModel : INotifyPropertyChanged
+    class ProductsAndComponentsViewModel : PropertyChangedVM
     {
         #region Fields and Commands
 
-        private Product _selectedProduct;
-
+        private Product _selectedProductRecipe;
+        // products
         private RelayCommand<object> _addProductCommand;
         private RelayCommand<object> _editProductCommand;
         private RelayCommand<object> _deleteProductCommand;
+        // components
+        private RelayCommand<object> _addComponentCommand;
+        private RelayCommand<object> _editComponentCommand;
+        private RelayCommand<object> _deleteComponentCommand;
+        // recipe
+        private RelayCommand<object> _addComponentToRecipeCommand;
+        private RelayCommand<object> _deleteComponentFromRecipeCommand;
 
         #endregion
 
         #region Properties
 
         public List<Product> Products { get; set; }
+        public List<Product> ProductsRecipe { get; set; }
         public List<Component> Components { get; set; }
+        public List<Component> ComponentsRecipe { get; set; }
 
-        public Product SelectedProduct
+        public Component SelectedComponent { get; set; }
+        public Product SelectedProduct { get; set; }
+
+        public Component SelectedComponentRecipe { get; set; }
+        public Product SelectedProductRecipe
         {
-            get => _selectedProduct;
+            get => _selectedProductRecipe;
             set
             {
-                _selectedProduct = value;
-                UpdateComponentsList();
+                _selectedProductRecipe = value;
+                UpdateComponentsRecipeList();
             }
         }
 
-        public ProductsAndComponentsViewModel() { Products = StationManager.DataStorage.selectAllProducts(); }
+        #endregion
 
+        public ProductsAndComponentsViewModel()
+        {
+            Products = StationManager.DataStorage.selectAllProducts();
+            ProductsRecipe = StationManager.DataStorage.selectProductNameType();
+            Components = StationManager.DataStorage.selectAllComponents();
+        }
+
+        #region Commands
+
+        // recipe commands
+        public RelayCommand<object> AddComponentToRecipe =>
+            _addComponentToRecipeCommand ?? (_addComponentToRecipeCommand = new RelayCommand<object>(o => AddComponentToRecipeImplementation()));
+
+        public RelayCommand<object> DeleteComponentFromRecipe =>
+            _deleteComponentFromRecipeCommand ?? (_deleteComponentFromRecipeCommand = new RelayCommand<object>(o => DeleteComponentFromRecipeImplementation(), o => CanExecuteRecipe()));
+
+        // products commands
         public RelayCommand<object> AddProduct =>
             _addProductCommand ?? (_addProductCommand = new RelayCommand<object>(o => AddProductImplementation()));
 
         public RelayCommand<object> EditProduct =>
-            _editProductCommand ?? (_editProductCommand = new RelayCommand<object>(o => EditProductImplementation(), o => CanExecute()));
+            _editProductCommand ?? (_editProductCommand = new RelayCommand<object>(o => EditProductImplementation(), o => CanExecuteProduct()));
 
         public RelayCommand<object> DeleteProduct =>
-            _deleteProductCommand ?? (_deleteProductCommand = new RelayCommand<object>(o => DeleteProductImplementation(), o => CanExecute()));
+            _deleteProductCommand ?? (_deleteProductCommand = new RelayCommand<object>(o => DeleteProductImplementation(), o => CanExecuteProduct()));
+
+        // components commands
+        public RelayCommand<object> AddComponent =>
+            _addComponentCommand ?? (_addComponentCommand = new RelayCommand<object>(o => AddComponentImplementation()));
+
+        public RelayCommand<object> EditComponent =>
+            _editComponentCommand ?? (_editComponentCommand = new RelayCommand<object>(o => EditComponentImplementation(), o => CanExecuteComponent()));
+
+        public RelayCommand<object> DeleteComponent =>
+            _deleteComponentCommand ?? (_deleteComponentCommand = new RelayCommand<object>(o => DeleteComponentImplementation(), o => CanExecuteComponent()));
 
         #endregion
 
+        #region Recipes Implementation
+
+        // RECIPES
+        private void AddComponentToRecipeImplementation()
+        {
+            StationManager.CurrentComponentRecipe = new Component();
+            StationManager.CurrentProductRecipe = SelectedProductRecipe;
+            AddComponentToRecipe win = new AddComponentToRecipe();
+            win.ShowDialog();
+            UpdateComponentsRecipeList();
+        }
+
+        private void DeleteComponentFromRecipeImplementation()
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure?",
+                $"Delete this component {SelectedComponentRecipe.Name} from this product {SelectedProductRecipe.Name} recipe?",
+                MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteComponentFromRecipe(SelectedComponentRecipe.Code, SelectedProductRecipe.Barcode);
+            UpdateComponentsRecipeList();
+        }
+
+        #endregion
+
+        #region Products Implementation
+
+        // PRODUCTS
         private void AddProductImplementation()
         {
-            AddProduct win = new AddProduct();
-            win.ShowDialog();
-            OnPropertyChanged("Products");
+            StationManager.CurrentProduct = new Product();
+            OpenAddProductWindow();
         }
 
         private void EditProductImplementation()
         {
             StationManager.CurrentProduct = SelectedProduct;
-            AddProduct win = new AddProduct();
-            win.ShowDialog();
-            OnPropertyChanged("Products");
+            OpenAddProductWindow();
         }
 
         private void DeleteProductImplementation()
         {
             MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete product", MessageBoxButton.YesNoCancel);
-            if (result == MessageBoxResult.Yes)
-            {
-                StationManager.DataStorage.deleteProduct(SelectedProduct.Barcode);
-            }
-            OnPropertyChanged("Products");
-        }
-
-        private bool CanExecute() => SelectedProduct != null;
-
-        public void UpdateComponentsList()
-        {
-            if (SelectedProduct != null) Components = StationManager.DataStorage.selectComponentByProductId(SelectedProduct.Barcode);
-            OnPropertyChanged("Components");
-        }
-        
-        #region INotifyPropertyChanged
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteProduct(SelectedProduct.Barcode);
+            UpdateProductsList();
         }
 
         #endregion
+
+        #region Components Implementation
+
+        // COMPONENTS
+        private void AddComponentImplementation()
+        {
+            StationManager.CurrentComponent = new Component();
+            OpenAddComponentWindow();
+        }
+
+        private void EditComponentImplementation()
+        {
+            StationManager.CurrentComponent = SelectedComponent;
+            OpenAddComponentWindow();
+        }
+
+        private void DeleteComponentImplementation()
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete component", MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteProduct(SelectedComponent.Code);
+            UpdateComponentsList();
+        }
+
+        #endregion
+
+        #region Open Windows
+
+        private void OpenAddProductWindow()
+        {
+            AddProduct win = new AddProduct();
+            win.ShowDialog();
+            UpdateProductsList();
+        }
+
+        private void OpenAddComponentWindow()
+        {
+            AddComponent win = new AddComponent();
+            win.ShowDialog();
+            UpdateComponentsList();
+        }
+
+        #endregion
+
+        #region CanExecute
+
+        private bool CanExecuteProduct() => SelectedProduct != null;
+        private bool CanExecuteComponent() => SelectedComponent != null;
+        private bool CanExecuteRecipe() => SelectedProductRecipe != null && SelectedComponentRecipe != null;
+
+        #endregion
+
+        #region Update Lists
+
+        public void UpdateComponentsList()
+        {
+            Components = StationManager.DataStorage.selectAllComponents();
+            OnPropertyChanged("Components");
+        }
+
+        public void UpdateProductsList()
+        {
+            Products = StationManager.DataStorage.selectAllProducts();
+            ProductsRecipe = StationManager.DataStorage.selectAllProducts();
+            OnPropertyChanged("Products");
+            OnPropertyChanged("ProductsRecipe");
+        }
+
+        public void UpdateComponentsRecipeList()
+        {
+            /*if (SelectedProductRecipe != null) */
+            ComponentsRecipe = StationManager.DataStorage.selectComponentByProductId(SelectedProductRecipe.Barcode);
+            OnPropertyChanged("ComponentsRecipe");
+        }
+
+        #endregion
+
     }
 }

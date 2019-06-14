@@ -4,6 +4,7 @@
     //EDRPOU_provisioner Provisioner_name Provisioner_phone Provisioner_is_legal Provisioner_street Provisioner_building_number  Provisioner_town Provisioner_post_code 
     class Provisioner
     {
+        // EDRPOU, Name, Phone, IsLegal, Street, BuildingNumber, Town, PostCode
         public string EDRPOU { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }

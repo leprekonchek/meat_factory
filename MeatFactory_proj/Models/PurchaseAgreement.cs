@@ -1,10 +1,10 @@
 ﻿using System;
 
-
 namespace MeatFactory_proj.Models
 {
     //_date  Number EDRPOU DateDB IsPaid
     //Purchase_agreement_number Date_pa Is_paid EDRPOU_provisioner
+
     class PurchaseAgreement
     {
         private string _date;

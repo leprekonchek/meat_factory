@@ -18,8 +18,8 @@ namespace MeatFactory_proj.Tools.Navigation
                 case ViewType.ProductView:
                     ViewsDictionary.Add(viewType, new ProductView());
                     break;
-                case ViewType.ProductsAndComponentsView:
-                    ViewsDictionary.Add(viewType, new ProductsAndComponents());
+                //case ViewType.ProductsAndComponentsView:
+                //    ViewsDictionary.Add(viewType, new ProductsAndComponents());
                     break;
                 case ViewType.AddProductView:
                     ViewsDictionary.Add(viewType, new AddProduct());

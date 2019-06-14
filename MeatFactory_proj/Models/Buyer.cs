@@ -5,6 +5,7 @@
 
     class Buyer
     {
+        // EDRPOU, Name, Phone, IsLegal, Street, BuildingNumber, Town, PostCode
         public string EDRPOU { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }

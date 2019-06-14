@@ -4,42 +4,46 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MeatFactory_proj.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             d:DesignHeight="350" d:DesignWidth="450">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="90"></ColumnDefinition>
+            <ColumnDefinition Width="15"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="10"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="70"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="15"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
 
         <!-- Login -->
-        <TextBlock Grid.Row="2" Grid.Column="2" Text="Login:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
-        <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Login:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17"/>
+        <TextBox Grid.Row="1" Grid.Column="3" FontSize="15" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
         <!-- Password -->
-        <TextBlock Grid.Row="4" Grid.Column="2" Text="Password:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
-        <PasswordBox Grid.Row="4" Grid.Column="4" Name="PasswordBox"></PasswordBox>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="Password:" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="17"/>
+        <PasswordBox Grid.Row="3" Grid.Column="3" Name="PasswordBox" FontSize="15"></PasswordBox>
+
+        <!-- Role -->
+        <TextBlock Grid.Row="8" Grid.Column="1" Height="30" HorizontalAlignment="Right" FontSize="17">Role: </TextBlock>
+        <ComboBox Grid.Row="8" Grid.Column="3" ItemsSource="{Binding Roles}" SelectedItem="{Binding Role}" Height="30"></ComboBox>
 
         <!-- Buttons -->
-        <Button Background="Azure" Grid.Row="6" Grid.Column="4" Content="Sign In" Command="{Binding SignInCommand}" />
-       <!-- <Button Background="Azure" Grid.Row="8" Grid.Column="4" Content="Sign Up" Command="{Binding SignUpCommand}" />-->
+        <Button Background="Azure" Grid.Row="5" Grid.Column="3" 
+                FontSize="15"
+                Command="{Binding SignInCommand}">Ввійти</Button>
+        <Button Background="Azure" Grid.Row="7" Grid.Column="3" 
+                FontSize="15"
+                Command="{Binding SignUpCommand}">Зареєструватись</Button>
     </Grid>
 </UserControl>

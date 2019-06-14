@@ -1,17 +1,20 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Documents;
+using System.Windows.Input;
 using MeatFactory_proj.Tools;
 using MeatFactory_proj.Tools.Managers;
 using MeatFactory_proj.Tools.Navigation;
+using MeatFactory_proj.Views;
 
 namespace MeatFactory_proj.ViewModels
 {
-    internal class SignInViewModel : INotifyPropertyChanged
+    internal class SignInViewModel : PropertyChangedVM
     {
         public SignInViewModel()
         {
-            Login = "dima";
+            Login = "sika";
+            Role = "Адміністрaтор";
         }
 
         #region Commands
@@ -22,9 +25,10 @@ namespace MeatFactory_proj.ViewModels
         #endregion
 
         #region Properties
-
+        public List<string> Roles { get; set; } = new List<string> { "Технолог", "Бухгалтер", "Адміністратор" };
         public string Login { get; set; }
-  
+        public string Role { get; set; }
+
         public RelayCommand<object> SignInCommand =>
             _signInCommand ?? (_signInCommand = new RelayCommand<object>(o => SignInImplementation(), o => CanExecute()));
 
@@ -37,14 +41,42 @@ namespace MeatFactory_proj.ViewModels
 
         private void SignInImplementation()
         {
-            bool exists = StationManager.DataStorage.userExists(Login);
-            if (exists)
+            if (StationManager.DataStorage.userExists(Login))
             {
-                string password = StationManager.DataStorage.getPassword(Login);
-                if (password == StationManager.Password.Password)
+                string passwordDB = StationManager.DataStorage.getPassword(Login);
+
+                // hashing
+                string hash_password = StationManager.Password.Password;
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(hash_password);
+                data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                hash_password = System.Text.Encoding.ASCII.GetString(data);
+
+                if (passwordDB == hash_password)
                 {
-                    StationManager.CurrentUser = StationManager.DataStorage.getUser(Login); ;
-                    NavigationManager.Instance.Navigate(ViewType.ProductsAndComponentsView);
+                    StationManager.CurrentUser = StationManager.DataStorage.getUser(Login);
+                    //NavigationManager.Instance.Navigate(ViewType.ProductsAndComponentsView);
+                    Role = StationManager.CurrentUser.Role;
+                    switch (Role)
+                    {
+                        case "Технолог":
+                            ProductsAndComponents win1 = new ProductsAndComponents();
+                            win1?.Show();
+                            break;
+                        case "Бухгалтер":
+                            BuyerAndProvisioner win2 = new BuyerAndProvisioner();
+                            win2?.Show();
+                            break;
+                        case "Адміністратор":
+                            ProductsAndComponents window1 = new ProductsAndComponents();
+                            window1?.Show();
+                            BuyerAndProvisioner window2 = new BuyerAndProvisioner();
+                            window2?.Show();
+                            break;
+                        default:
+                            MessageBox.Show("User has no role!");
+                            break;
+                    }
+                    Application.Current.Windows[0]?.Close();
                 }
                 else { MessageBox.Show("Password is not correct"); }
             }
@@ -53,19 +85,14 @@ namespace MeatFactory_proj.ViewModels
 
         private void SignUpImplementation()
         {
-            StationManager.DataStorage.insertNewUser(Login, StationManager.Password.Password);
+            string hash_password = StationManager.Password.Password;
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(hash_password);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            hash_password = System.Text.Encoding.ASCII.GetString(data);
+
+            StationManager.DataStorage.insertNewUser(Login, hash_password, Role);
             MessageBox.Show("New user created!");
         }
 
-        #region INotifyPropertyChanged
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion
     }
 }
