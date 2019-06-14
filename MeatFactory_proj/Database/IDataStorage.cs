@@ -39,9 +39,44 @@ namespace MeatFactory_proj.Database
         List<Product> selectProductNameType();
 
         // buyer
-        List<PurchaseAgreement> selectPAbyProvisionerID(string id);
+        void insertNewBuyer(Buyer buyer);
+        void updateBuyer(Buyer buyer);
+        void deleteBuyer(string EDRPOU_buyer);
+        List<SaleAgreement> selectSAbyBuyerID(string id);
+        
 
         // provisioner
-        List<SaleAgreement> selectSAbyBuyerID(string id);
+        void insertNewProvisioner(Provisioner provisioner);
+        void updateProvisioner(Provisioner provisioner);
+        void deleteProvisioner(string EDRPOU_provisioner);
+        List<PurchaseAgreement> selectPAbyProvisionerID(string id); 
+              
+        // transport
+        void insertNewTransport(Transport transport);
+        void updateTransport(Transport transport);
+        void deleteTransport(string Auto_number);
+
+        //PurchaseAgreement
+        void insertNewPurchaseAgreement(PurchaseAgreement purchaseAgreement);
+        void updatePurchaseAgreement(PurchaseAgreement purchaseAgreement);
+        void deletePurchaseAgreement(string Purchase_agreement_number);
+
+        //PurchaseAgreement
+        void insertNewSaleAgreement(PurchaseAgreement saleAgreement);
+        void updateSaleAgreement(PurchaseAgreement saleAgreement);
+        void deleteSaleAgreement(string Sale_agreement_number);
+
+
+        //PurchaseAgreementAndComponent
+        void insertNewPurchaseAgreementAndComponentt(PurchaseAgreementAndComponent saleAgreement);
+        void updatePurchaseAgreementAndComponent(PurchaseAgreementAndComponent saleAgreement);
+        void deletePurchaseAgreementAndComponent(string Component_сode, string Purchase_agreement_number);
+
+        //SaleAgreementAndProduct
+        void insertNewSaleAgreementAndProduct(SaleAgreementAndProduct saleAgreement);
+        void updateSaleAgreementAndProduct(SaleAgreementAndProduct saleAgreement);
+        void deleteSaleAgreementAndProduct(string SaleAgreementAndProduct, string Barcode;
+                                           
+                                           
     }
 }

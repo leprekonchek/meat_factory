@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MeatFactory_proj.Models
 {
+    //_date  Number EDRPOU DateDB IsPaid
+    //Purchase_agreement_number Date_pa Is_paid EDRPOU_provisioner
+
     class PurchaseAgreement
     {
         private string _date;
