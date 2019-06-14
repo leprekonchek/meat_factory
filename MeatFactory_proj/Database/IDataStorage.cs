@@ -61,21 +61,18 @@ namespace MeatFactory_proj.Database
         void updatePurchaseAgreement(PurchaseAgreement purchaseAgreement);
         void deletePurchaseAgreement(string Purchase_agreement_number);
 
-        //PurchaseAgreement
-        void insertNewSaleAgreement(PurchaseAgreement saleAgreement);
-        void updateSaleAgreement(PurchaseAgreement saleAgreement);
+        //SaleAgreement
+        void insertNewSaleAgreement(SaleAgreement saleAgreement);
+        void updateSaleAgreement(SaleAgreement saleAgreement);
         void deleteSaleAgreement(string Sale_agreement_number);
 
-
         //PurchaseAgreementAndComponent
-        void insertNewPurchaseAgreementAndComponentt(PurchaseAgreementAndComponent saleAgreement);
-        void updatePurchaseAgreementAndComponent(PurchaseAgreementAndComponent saleAgreement);
+        void insertNewPurchaseAgreementAndComponent(PurchaseAgreementAndComponent saleAgreement);
         void deletePurchaseAgreementAndComponent(string Component_сode, string Purchase_agreement_number);
 
         //SaleAgreementAndProduct
         void insertNewSaleAgreementAndProduct(SaleAgreementAndProduct saleAgreement);
-        void updateSaleAgreementAndProduct(SaleAgreementAndProduct saleAgreement);
-        void deleteSaleAgreementAndProduct(string SaleAgreementAndProduct, string Barcode;
+        void deleteSaleAgreementAndProduct(string SaleAgreementAndProduct, string Barcode);
                                            
                                            
     }

@@ -190,29 +190,29 @@ namespace MeatFactory_proj.ViewModels
 
         private void OpenAddProductWindow()
         {
-            AddBuyer win = new AddBuyer();
-            win.ShowDialog();
+            //AddBuyer win = new AddBuyer();
+          //  win.ShowDialog();
             UpdateBuyersList();
         }
 
         private void OpenAddComponentWindow()
         {
-            AddProvisioner win = new AddProvisioner();
-            win.ShowDialog();
+            //AddProvisioner win = new AddProvisioner();
+           // win.ShowDialog();
             UpdateProvisionersList();
         }
 
         private void OpenAddSAWindow()
         {
-            AddSA win = new AddSA();
-            win.ShowDialog();
+            //AddSA win = new AddSA();
+           // win.ShowDialog();
             UpdateBuyersList();
         }
 
         private void OpenAddPAWindow()
         {
-            AddPA win = new AddPA();
-            win.ShowDialog();
+            //AddPA win = new AddPA();
+           // win.ShowDialog();
             UpdateProvisionersList();
         }
 
