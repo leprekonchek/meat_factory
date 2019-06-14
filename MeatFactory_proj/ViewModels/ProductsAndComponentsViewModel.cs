@@ -48,6 +48,8 @@ namespace MeatFactory_proj.ViewModels
             }
         }
 
+        #endregion
+
         public ProductsAndComponentsViewModel()
         {
             Products = StationManager.DataStorage.selectAllProducts();
@@ -55,13 +57,15 @@ namespace MeatFactory_proj.ViewModels
             Components = StationManager.DataStorage.selectAllComponents();
         }
 
+        #region Commands
+
         // recipe commands
         public RelayCommand<object> AddComponentToRecipe =>
             _addComponentToRecipeCommand ?? (_addComponentToRecipeCommand = new RelayCommand<object>(o => AddComponentToRecipeImplementation()));
 
         public RelayCommand<object> DeleteComponentFromRecipe =>
             _deleteComponentFromRecipeCommand ?? (_deleteComponentFromRecipeCommand = new RelayCommand<object>(o => DeleteComponentFromRecipeImplementation(), o => CanExecuteRecipe()));
-        
+
         // products commands
         public RelayCommand<object> AddProduct =>
             _addProductCommand ?? (_addProductCommand = new RelayCommand<object>(o => AddProductImplementation()));
@@ -84,6 +88,8 @@ namespace MeatFactory_proj.ViewModels
 
         #endregion
 
+        #region Recipes Implementation
+
         // RECIPES
         private void AddComponentToRecipeImplementation()
         {
@@ -97,11 +103,15 @@ namespace MeatFactory_proj.ViewModels
         private void DeleteComponentFromRecipeImplementation()
         {
             MessageBoxResult result = MessageBox.Show("Are you sure?",
-                $"Delete this component {SelectedComponentRecipe.Name} from this product {SelectedProductRecipe.Name} recipe?", 
+                $"Delete this component {SelectedComponentRecipe.Name} from this product {SelectedProductRecipe.Name} recipe?",
                 MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteComponentFromRecipe(SelectedComponentRecipe.Code, SelectedProductRecipe.Barcode);
             UpdateComponentsRecipeList();
         }
+
+        #endregion
+
+        #region Products Implementation
 
         // PRODUCTS
         private void AddProductImplementation()
@@ -123,6 +133,10 @@ namespace MeatFactory_proj.ViewModels
             UpdateProductsList();
         }
 
+        #endregion
+
+        #region Components Implementation
+
         // COMPONENTS
         private void AddComponentImplementation()
         {
@@ -143,6 +157,10 @@ namespace MeatFactory_proj.ViewModels
             UpdateComponentsList();
         }
 
+        #endregion
+
+        #region Open Windows
+
         private void OpenAddProductWindow()
         {
             AddProduct win = new AddProduct();
@@ -157,9 +175,17 @@ namespace MeatFactory_proj.ViewModels
             UpdateComponentsList();
         }
 
+        #endregion
+
+        #region CanExecute
+
         private bool CanExecuteProduct() => SelectedProduct != null;
         private bool CanExecuteComponent() => SelectedComponent != null;
         private bool CanExecuteRecipe() => SelectedProductRecipe != null && SelectedComponentRecipe != null;
+
+        #endregion
+
+        #region Update Lists
 
         public void UpdateComponentsList()
         {
@@ -177,8 +203,12 @@ namespace MeatFactory_proj.ViewModels
 
         public void UpdateComponentsRecipeList()
         {
-            /*if (SelectedProductRecipe != null) */ComponentsRecipe = StationManager.DataStorage.selectComponentByProductId(SelectedProductRecipe.Barcode);
+            /*if (SelectedProductRecipe != null) */
+            ComponentsRecipe = StationManager.DataStorage.selectComponentByProductId(SelectedProductRecipe.Barcode);
             OnPropertyChanged("ComponentsRecipe");
         }
+
+        #endregion
+
     }
 }
