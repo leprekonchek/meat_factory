@@ -61,9 +61,7 @@
       <DependentUpon>MeatFactoryDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models\PurchaseAgreement.cs" />
-    <Compile Include="Models\PurchaseAgreementAndComponent.cs" />
     <Compile Include="Models\SaleAgreement.cs" />
-    <Compile Include="Models\SaleAgreementAndProduct.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Tools\Managers\NavigationManager.cs" />
     <Compile Include="Tools\Managers\StationManager.cs" />
@@ -83,14 +81,26 @@
     <Compile Include="ViewModels\ProductsAndComponentsViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\SignInViewModel.cs" />
+    <Compile Include="Views\Add,edit\AddBuyer.xaml.cs">
+      <DependentUpon>AddBuyer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Add,edit\AddComponent.xaml.cs">
       <DependentUpon>AddComponent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Add,edit\AddComponentToRecipe.xaml.cs">
       <DependentUpon>AddComponentToRecipe.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Add,edit\AddPA.xaml.cs">
+      <DependentUpon>AddPA.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Add,edit\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Add,edit\AddProvisioner.xaml.cs">
+      <DependentUpon>AddProvisioner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Add,edit\AddSA.xaml.cs">
+      <DependentUpon>AddSA.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BuyerAndProvisioner.xaml.cs">
       <DependentUpon>BuyerAndProvisioner.xaml</DependentUpon>
@@ -121,6 +131,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Add,edit\AddBuyer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Add,edit\AddComponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,7 +143,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Add,edit\AddPA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Add,edit\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Add,edit\AddProvisioner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Add,edit\AddSA.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
