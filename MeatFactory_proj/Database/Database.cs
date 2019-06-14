@@ -1010,27 +1010,10 @@ namespace MeatFactory_proj.Database
             catch (Exception e) { MessageBox.Show(e.Message); }
             finally { connection?.Close(); }
         }
-
-        public void insertNewSaleAgreement(PurchaseAgreement saleAgreement)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void updateSaleAgreement(PurchaseAgreement saleAgreement)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         #endregion
 
         #region PurchaseAgreementAndComponent
-
-]
-
-        #endregion
-
-        #region PurchaseAgreementAndComponent
-
         
         public void insertNewPurchaseAgreementAndComponent(PurchaseAgreementAndComponent purchaseAgreementAndComponent)
         {
@@ -1067,8 +1050,7 @@ namespace MeatFactory_proj.Database
         #endregion
 
         #region SaleAgreementAndProduct
-
-
+        
         public void insertNewSaleAgreementAndProduct(SaleAgreementAndProduct saleAgreementAndProduct)
         {
             try
@@ -1085,7 +1067,7 @@ namespace MeatFactory_proj.Database
             catch (Exception e) { MessageBox.Show(e.Message); }
             finally { connection?.Close(); }
         }
-        public void deleteSaleAgreementAndProductt(string SaleAgreementAndProduct, string Barcode)
+        public void deleteSaleAgreementAndProduct(string SaleAgreementAndProduct, string Barcode)
         {
             try
             {
@@ -1099,6 +1081,16 @@ namespace MeatFactory_proj.Database
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
             finally { connection?.Close(); }
+        }
+
+        public void insertNewSaleAgreement(PurchaseAgreement saleAgreement)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void updateSaleAgreement(PurchaseAgreement saleAgreement)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
