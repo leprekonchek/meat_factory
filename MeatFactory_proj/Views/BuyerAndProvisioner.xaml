@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MeatFactory_proj.Views"
         mc:Ignorable="d"
-        Title="BuyerAndProvisioner" Height="650" Width="1000">
+        Title="Покупці та постачальники" Height="650" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -70,6 +70,7 @@
 
         <Button Grid.Row="4" Grid.Column="5" Margin="2" Command="{Binding AddPA}">Додати</Button>
         <Button Grid.Row="4" Grid.Column="6" Margin="2" Command="{Binding DeletePA}">Видалити</Button>
+
 
         <!--Покупці-->
         <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3">Покупці</Label>

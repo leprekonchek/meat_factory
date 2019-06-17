@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MeatFactory_proj.Views.Add_edit"
         mc:Ignorable="d"
         Name="AddComponentW"
-        Title="Додати нову компоненту" Height="280" Width="500">
+        Title="Додати новий компонент" Height="280" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"></RowDefinition>

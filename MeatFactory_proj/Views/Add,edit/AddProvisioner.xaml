@@ -4,9 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MeatFactory_proj.Views.Add_edit"
-        mc:Ignorable="d"
-        Name="AddProvisionerW"
-        Title="AddProvisioner" Height="330" Width="500">
+        mc:Ignorable="d" Name="AddProvisionerW"
+        Title="Додати постачальника" Height="330" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"></RowDefinition>

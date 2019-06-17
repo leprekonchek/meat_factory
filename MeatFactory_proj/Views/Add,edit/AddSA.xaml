@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MeatFactory_proj.Views.Add_edit"
         mc:Ignorable="d" Name="AddSAW"
-        Title="AddSA" Height="230" Width="500">
+        Title="Додати договір на продаж" Height="230" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"></RowDefinition>
