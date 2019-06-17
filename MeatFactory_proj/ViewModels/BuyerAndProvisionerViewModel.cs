@@ -139,7 +139,7 @@ namespace MeatFactory_proj.ViewModels
 
         private void DeleteBuyerImplementation()
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete buyer", MessageBoxButton.YesNoCancel);
+            MessageBoxResult result = MessageBox.Show("Ви впевнені?", "Видалити покупця", MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteBuyer(SelectedBuyer.EDRPOU);
             UpdateBuyersList();
         }
@@ -162,7 +162,7 @@ namespace MeatFactory_proj.ViewModels
 
         private void DeleteProvisonerImplementation()
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete product", MessageBoxButton.YesNoCancel);
+            MessageBoxResult result = MessageBox.Show("Ви впевнені?", "Видалити постачальника", MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteProvisioner(SelectedProvisioner.EDRPOU);
             UpdateProvisionersList();
         }
@@ -185,7 +185,7 @@ namespace MeatFactory_proj.ViewModels
 
         private void DeleteSAImplementation()
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete product", MessageBoxButton.YesNoCancel);
+            MessageBoxResult result = MessageBox.Show("Ви впевнені?", "Видалити договір на продаж", MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteSaleAgreement(SelectedSaleAgreement.Number);
             UpdateSaleAgreementsList();
         }
@@ -214,7 +214,7 @@ namespace MeatFactory_proj.ViewModels
 
         private void DeletePAImplementation()
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete product", MessageBoxButton.YesNoCancel);
+            MessageBoxResult result = MessageBox.Show("Ви впевнені?", "Видалити договір на купівлю", MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes) StationManager.DataStorage.deletePurchaseAgreement(SelectedPurchaseAgreement.Number);
             UpdatePurchaseAgreementsList();
         }
@@ -257,14 +257,14 @@ namespace MeatFactory_proj.ViewModels
         {
             AddSA win = new AddSA();
             win.ShowDialog();
-            UpdateBuyersList();
+            UpdateSaleAgreementsList();
         }
 
         private void OpenAddPAWindow()
         {
             AddPA win = new AddPA();
             win.ShowDialog();
-            UpdateProvisionersList();
+            UpdatePurchaseAgreementsList();
         }
 
         #endregion
@@ -294,13 +294,13 @@ namespace MeatFactory_proj.ViewModels
 
         private void UpdateSaleAgreementsList()
         {
-            SaleAgreements = StationManager.DataStorage.selectSAbyBuyerID(SelectedBuyer.EDRPOU);
+            if (SelectedBuyer != null) SaleAgreements = StationManager.DataStorage.selectSAbyBuyerID(SelectedBuyer.EDRPOU);
             OnPropertyChanged("SaleAgreements");
         }
 
         private void UpdatePurchaseAgreementsList()
         {
-            PurchaseAgreements = StationManager.DataStorage.selectPAbyProvisionerID(SelectedProvisioner.EDRPOU);
+            if (SelectedProvisioner != null) PurchaseAgreements = StationManager.DataStorage.selectPAbyProvisionerID(SelectedProvisioner.EDRPOU);
             OnPropertyChanged("PurchaseAgreements");
         }
 

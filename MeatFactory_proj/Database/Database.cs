@@ -814,43 +814,7 @@ namespace MeatFactory_proj.Database
         }
 
         #endregion
-
-        #region Provisioner
-
-        public List<PurchaseAgreement> selectPAbyProvisionerID(string id)
-        {
-            List<PurchaseAgreement> listPa = new List<PurchaseAgreement>();
-            try
-            {
-                if (connection == null) { throw new Exception("Connection String is Null"); }
-                connection.Open();
-
-                SqlCommand query = new SqlCommand(
-                    "SELECT * " +
-                    "FROM PurchaseAgreement " +
-                    $"WHERE EDRPOU_provisioner = '{id}'", connection);
-
-                SqlDataReader reader = query.ExecuteReader();
-                while (reader.Read())
-                {
-                    PurchaseAgreement pa = new PurchaseAgreement()
-                    {
-                        Number = reader.GetString(0),
-                        DateDB = reader.GetDateTime(1),
-                        IsPaid = reader.GetBoolean(2),
-                        EDRPOU = reader.GetString(3)
-                    };
-                    listPa.Add(pa);
-                }
-                reader.Close();
-            }
-            catch (Exception e) { MessageBox.Show(e.Message); }
-            finally { connection?.Close(); }
-            return listPa;
-        }
-
-        #endregion
-
+        
         #region Buyer   
         public void insertNewBuyer(Buyer buyer)
         {
@@ -913,8 +877,9 @@ namespace MeatFactory_proj.Database
             {
                 if (connection == null) { throw new Exception("Connection String is Null"); }
                 connection.Open();
-                //atributy s basy dannyh
-                SqlCommand query = new SqlCommand("INSERT INTO Provisioner (EDRPOU_provisioner, Provisioner_name, Provisioner_phone, Provisioner_is_legal, Provisioner_street, Provisioner_building_number,  Provisioner_town, Provisioner_post_code) " +
+                SqlCommand query = new SqlCommand("INSERT INTO Provisioner (EDRPOU_provisioner, Provisioner_name, Provisioner_phone," +
+                                                  " Provisioner_is_legal, Provisioner_street, Provisioner_building_number,  Provisioner_town, " +
+                                                  "Provisioner_post_code) " +
                                                   $"VALUES (N'{provisioner.EDRPOU}',N'{provisioner.Name}',N'{provisioner.Phone}','{provisioner.IsLegal}'," +
                                                   $"N'{provisioner.Street}',N'{provisioner.BuildingNumber}', N'{provisioner.Town}', N'{provisioner.PostCode}')", connection); // which values
 
@@ -959,6 +924,38 @@ namespace MeatFactory_proj.Database
             finally { connection?.Close(); }
         }
 
+        public List<PurchaseAgreement> selectPAbyProvisionerID(string id)
+        {
+            List<PurchaseAgreement> listPa = new List<PurchaseAgreement>();
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+                connection.Open();
+
+                SqlCommand query = new SqlCommand(
+                    "SELECT * " +
+                    "FROM PurchaseAgreement " +
+                    $"WHERE EDRPOU_provisioner = '{id}'", connection);
+
+                SqlDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    PurchaseAgreement pa = new PurchaseAgreement()
+                    {
+                        Number = reader.GetString(0),
+                        DateDB = reader.GetDateTime(1),
+                        IsPaid = reader.GetBoolean(2),
+                        EDRPOU = reader.GetString(3)
+                    };
+                    listPa.Add(pa);
+                }
+                reader.Close();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+            return listPa;
+        }
+
         #endregion
 
         #region Transport
@@ -989,9 +986,8 @@ namespace MeatFactory_proj.Database
                 connection.Open();
 
                 SqlCommand query = new SqlCommand("UPDATE Transport " +
-                                                  $"SET EDRPOU_buyer = N'{transport.AutoNumber}',  Buyer_name = N'{transport.Type}', Buyer_phone = '{transport.PriceOfPetrol}', " +
-                                                  $"Buyer_is_legal = N'{transport.Driver}' " +
-
+                                                  $"SET Auto_number = N'{transport.AutoNumber}', Type = N'{transport.Type}', Price_of_petrol = '{transport.PriceOfPetrol}', " +
+                                                  $"Driver = N'{transport.Driver}' " +
                                                   $"WHERE Auto_number = N'{transport.AutoNumber}'", connection);
 
                 query.ExecuteNonQuery();

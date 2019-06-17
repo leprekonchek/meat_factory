@@ -26,12 +26,12 @@ namespace MeatFactory_proj.ViewModels.Add__edit
         }
 
         public ICommand CancelCommand => _cancelCommand ?? (_cancelCommand = new RelayCommand<Window>(w => w?.Close()));
-        public ICommand SaveCommand => _saveCommand ?? (_saveCommand = new RelayCommand<Window>(SaveImplementation, o => CanExecute()));
+        public ICommand SaveCommand => _saveCommand ?? (_saveCommand = new RelayCommand<Window>(SaveImplementation/*, o => CanExecute()*/));
 
-        public bool CanExecute() => !String.IsNullOrEmpty(Provisioner.Name) && !String.IsNullOrEmpty(Provisioner.Phone) &&
-                                    !String.IsNullOrEmpty(Provisioner.BuildingNumber) && !String.IsNullOrEmpty(Provisioner.PostCode) &&
-                                    !String.IsNullOrEmpty(Provisioner.EDRPOU) && !String.IsNullOrEmpty(Provisioner.Street) &&
-                                    !String.IsNullOrEmpty(Provisioner.Town);
+        //public bool CanExecute() => !String.IsNullOrEmpty(Provisioner.Name) && !String.IsNullOrEmpty(Provisioner.Phone) &&
+        //                            !String.IsNullOrEmpty(Provisioner.BuildingNumber) && !String.IsNullOrEmpty(Provisioner.PostCode) &&
+        //                            !String.IsNullOrEmpty(Provisioner.EDRPOU) && !String.IsNullOrEmpty(Provisioner.Street) &&
+        //                            !String.IsNullOrEmpty(Provisioner.Town);
 
         private void SaveImplementation(Window win)
         {
