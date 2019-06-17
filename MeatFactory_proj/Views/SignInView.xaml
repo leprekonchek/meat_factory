@@ -27,15 +27,15 @@
         </Grid.RowDefinitions>
 
         <!-- Login -->
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Login:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Логін:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17"/>
         <TextBox Grid.Row="1" Grid.Column="3" FontSize="15" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
         <!-- Password -->
-        <TextBlock Grid.Row="3" Grid.Column="1" Text="Password:" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="17"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="Пароль:" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="17"/>
         <PasswordBox Grid.Row="3" Grid.Column="3" Name="PasswordBox" FontSize="15"></PasswordBox>
 
         <!-- Role -->
-        <TextBlock Grid.Row="8" Grid.Column="1" Height="30" HorizontalAlignment="Right" FontSize="17">Role: </TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="1" Height="30" HorizontalAlignment="Right" FontSize="17">Роль: </TextBlock>
         <ComboBox Grid.Row="8" Grid.Column="3" ItemsSource="{Binding Roles}" SelectedItem="{Binding Role}" Height="30"></ComboBox>
 
         <!-- Buttons -->

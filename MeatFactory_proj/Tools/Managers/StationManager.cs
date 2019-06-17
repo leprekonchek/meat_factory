@@ -6,8 +6,7 @@ namespace MeatFactory_proj.Tools.Managers
 {
     class StationManager
     {
-        private static IDataStorage _dataStorage = new Database.Database();
-        public static IDataStorage DataStorage => _dataStorage;
+        public static IDataStorage DataStorage { get; } = new Database.Database();
 
         public static PasswordBox Password { get; set; }
 
@@ -16,5 +15,9 @@ namespace MeatFactory_proj.Tools.Managers
         public static Component CurrentComponent { get; set; }
         public static Component CurrentComponentRecipe { get; set; }
         public static Product CurrentProductRecipe { get; set; }
+        public static Buyer CurrentBuyer { get; set; }
+        public static Provisioner CurrentProvisioner { get; set; }
+        public static SaleAgreement CurrentSaleAgreement { get; set; }
+        public static PurchaseAgreement CurrentPurchaseAgreement { get; set; }
     }
 }

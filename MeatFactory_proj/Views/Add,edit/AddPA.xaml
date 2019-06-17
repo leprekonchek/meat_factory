@@ -4,9 +4,46 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MeatFactory_proj.Views.Add_edit"
-        mc:Ignorable="d"
-        Title="AddPA" Height="450" Width="800">
+        mc:Ignorable="d" Name="AddPAW"
+        Title="AddPA" Height="230" Width="500">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="16*"></ColumnDefinition>
+            <ColumnDefinition Width="205*"/>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="222*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Номер договору" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,11,0.333,21" Grid.RowSpan="3"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding PurchaseAgreement.Number, Mode=TwoWay}" Grid.ColumnSpan="3" Margin="0,0.333,9.333,10.333" Grid.RowSpan="2"></TextBox>
+
+        <Label Content="Продавець" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,11,0.333,21" Grid.RowSpan="3"></Label>
+        <ComboBox Grid.Row="5" Grid.Column="1" ItemsSource="{Binding ProvisionersList}" SelectedItem="{Binding PurchaseAgreement.ERDPOU, Mode=TwoWay}" Grid.ColumnSpan="2" Margin="0,0.333,0.333,0"></ComboBox>
+
+
+        <Label Content="Дата укладання договору" Grid.Column="3" Grid.ColumnSpan="2" Margin="9.667,11,0.333,21" Grid.RowSpan="3"/>
+        <DatePicker Grid.Row="2" Grid.Column="3" SelectedDate="{Binding PurchaseAgreement.DateDB, Mode=TwoWay}" SelectedDateFormat="Short" Grid.ColumnSpan="2" Margin="9.667,0.333,0.333,0"></DatePicker>
+
+        <Label Content="Сплачено?" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Margin="9.667,11,0.333,21" Grid.RowSpan="3"></Label>
+        <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding PurchaseAgreement.IsPaid, Mode=TwoWay}" Grid.ColumnSpan="2" Margin="9.667,0.333,0.333,10.333" Grid.RowSpan="2"></TextBox>
+
+
+        <Button Grid.Row="6" Grid.Column="1" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=AddPAW}" Grid.ColumnSpan="2" Margin="0,11,0.333,-0.333" Grid.RowSpan="2">Зберегти</Button>
+        <Button Grid.Row="6" Grid.Column="3" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=AddPAW}" Grid.ColumnSpan="2" Margin="9.667,11,0.333,-0.333" Grid.RowSpan="2">Скасувати</Button>
     </Grid>
 </Window>

@@ -5,8 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MeatFactory_proj.Views.Add_edit"
         mc:Ignorable="d"
-        Title="AddProvisioner" Height="450" Width="800">
+        Name="AddProvisionerW"
+        Title="AddProvisioner" Height="330" Width="500">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="3"></RowDefinition>
+
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+
+            <RowDefinition Height="10"></RowDefinition>
+
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="ЄДРПОУ" Grid.Row="1" Grid.Column="1"></Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Provisioner.EDRPOU, Mode=TwoWay}"></TextBox>
+
+        <Label Content="Назва/ПІБ" Grid.Row="4" Grid.Column="1"></Label>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Provisioner.Name, Mode=TwoWay}"></TextBox>
+
+        <Label Content="Телефон" Grid.Row="4" Grid.Column="3"></Label>
+        <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding Provisioner.Phone, Mode=TwoWay}"></TextBox>
+
+        <Label Content="Юридична особа?" Grid.Row="1" Grid.Column="3"></Label>
+        <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Provisioner.IsLegal, Mode=TwoWay}"></TextBox>
+
+        <Label Content="Адреса: " Grid.Row="7" Grid.Column="1"></Label>
+
+        <Grid Row="8" Column="1" ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="5"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Вулиця" Grid.Row="1" Grid.Column="1" Margin="2,0,0,0"></Label>
+            <TextBox Grid.Row="2" Grid.Column="1" Width="130" HorizontalAlignment="Left" Margin="5,0,0,0" 
+                     Text="{Binding Provisioner.Street, Mode=TwoWay}"></TextBox>
+
+            <Label Content="Дім" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,35,0"></Label>
+            <TextBox Grid.Row="2" Grid.Column="1" Width="50" HorizontalAlignment="Right" Margin="0,0,15,0" 
+                     Text="{Binding Provisioner.BuildingNumber, Mode=TwoWay}"></TextBox>
+
+            <Label Content="Поштовий індекс" Grid.Row="1" Grid.Column="3" Margin="2,0,0,0"></Label>
+            <TextBox Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" Width="100" Margin="5,0,0,0"
+                     Text="{Binding Provisioner.PostCode, Mode=TwoWay}"></TextBox>
+
+            <Label Content="Місто" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,55,0"></Label>
+            <TextBox Grid.Row="2" Grid.Column="3"  HorizontalAlignment="Right" Width="100"
+                     Text="{Binding Provisioner.Town, Mode=TwoWay}"></TextBox>
+        </Grid>
+
+        <Button Grid.Row="14" Grid.Column="1" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=AddProvisionerW}">Зберегти</Button>
+        <Button Grid.Row="14" Grid.Column="3" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=AddProvisionerW}">Скасувати</Button>
     </Grid>
 </Window>
