@@ -15,12 +15,12 @@ namespace MeatFactory_proj.Tools.Navigation
                 case ViewType.StartView:
                     ViewsDictionary.Add(viewType, new SignInView());
                     break;
-                case ViewType.ProductView:
-                    ViewsDictionary.Add(viewType, new ProductView());
-                    break;
+                //case ViewType.ProductView:
+                //    ViewsDictionary.Add(viewType, new ProductView());
+                //    break;
                 //case ViewType.ProductsAndComponentsView:
                 //    ViewsDictionary.Add(viewType, new ProductsAndComponents());
-                    break;
+                //   break;
                 case ViewType.AddProductView:
                     ViewsDictionary.Add(viewType, new AddProduct());
                     break;

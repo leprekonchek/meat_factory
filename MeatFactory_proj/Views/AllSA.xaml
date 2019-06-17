@@ -1,0 +1,32 @@
+﻿<Window x:Class="MeatFactory_proj.Views.AllSA"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MeatFactory_proj.Views"
+        mc:Ignorable="d"
+        Title="AllSA" Height="450" Width="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid ItemsSource="{Binding SA}" 
+                  AutoGenerateColumns="False" IsReadOnly="True"
+                  Grid.Row="1" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="0.15*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="0.15*"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Сплачено" Binding="{Binding IsPaid}" Width="0.1*"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Продавець" Binding="{Binding EDRPOU}" Width="0.3*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

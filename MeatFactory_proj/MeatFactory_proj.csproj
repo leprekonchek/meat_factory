@@ -77,11 +77,12 @@
     <Compile Include="ViewModels\Add, edit\AddComponentToRecipeViewModel.cs" />
     <Compile Include="ViewModels\Add, edit\AddComponentViewModel.cs" />
     <Compile Include="ViewModels\Add, edit\AddProductViewModel.cs" />
+    <Compile Include="ViewModels\AllPAViewModel.cs" />
+    <Compile Include="ViewModels\AllSAViewModel.cs" />
+    <Compile Include="ViewModels\AllTransportViewModel.cs" />
     <Compile Include="ViewModels\BuyerAndProvisionerViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\NavBarViewModel.cs" />
     <Compile Include="ViewModels\ProductsAndComponentsViewModel.cs" />
-    <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\SignInViewModel.cs" />
     <Compile Include="Views\Add,edit\AddBuyer.xaml.cs">
       <DependentUpon>AddBuyer.xaml</DependentUpon>
@@ -104,17 +105,20 @@
     <Compile Include="Views\Add,edit\AddSA.xaml.cs">
       <DependentUpon>AddSA.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AllPA.xaml.cs">
+      <DependentUpon>AllPA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AllSA.xaml.cs">
+      <DependentUpon>AllSA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AllTransport.xaml.cs">
+      <DependentUpon>AllTransport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BuyerAndProvisioner.xaml.cs">
       <DependentUpon>BuyerAndProvisioner.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NavBarView.xaml.cs">
-      <DependentUpon>NavBarView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ProductsAndComponents.xaml.cs">
       <DependentUpon>ProductsAndComponents.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ProductView.xaml.cs">
-      <DependentUpon>ProductView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SignInView.xaml.cs">
       <DependentUpon>SignInView.xaml</DependentUpon>
@@ -161,19 +165,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AllPA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AllSA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AllTransport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BuyerAndProvisioner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NavBarView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ProductsAndComponents.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

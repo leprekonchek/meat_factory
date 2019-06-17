@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MeatFactory_proj.Views"
         mc:Ignorable="d"
-        Title="Покупці та постачальники" Height="650" Width="950">
+        Title="Покупці та постачальники" Height="650" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -16,6 +16,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -50,12 +52,12 @@
         </DataGrid>
 
         <Button Grid.Row="4" Grid.Column="1" Margin="2" Command="{Binding AddProvisioner}">Додати</Button>
-        <Button Grid.Row="4" Grid.Column="2" Margin="2" Command="{Binding UpdateProvisioner}">Оновити</Button>
+        <Button Grid.Row="4" Grid.Column="2" Margin="2" Command="{Binding UpdateProvisioner}">Редагувати</Button>
         <Button Grid.Row="4" Grid.Column="3" Margin="2" Command="{Binding DeleteProvisioner}">Видалити</Button>
 
         <Label Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3">Договори з постачальником</Label>
         <DataGrid ItemsSource="{Binding PurchaseAgreements}" 
-                  SelectedItem="{Binding SelectedPA}"
+                  SelectedItem="{Binding SelectedPurchaseAgreement}"
                   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True"
                   Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="3">
             <DataGrid.Columns>
@@ -67,8 +69,8 @@
         </DataGrid>
 
         <Button Grid.Row="4" Grid.Column="5" Margin="2" Command="{Binding AddPA}">Додати</Button>
-        <Button Grid.Row="4" Grid.Column="6" Margin="2" Command="{Binding UpdatePA}">Оновити</Button>
-        <Button Grid.Row="4" Grid.Column="7" Margin="2" Command="{Binding DeletePA}">Видалити</Button>
+        <Button Grid.Row="4" Grid.Column="6" Margin="2" Command="{Binding DeletePA}">Видалити</Button>
+
 
         <!--Покупці-->
         <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3">Покупці</Label>
@@ -88,14 +90,14 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Grid.Row="9" Grid.Column="1" Margin="2" Command="{Binding AddBuyer}" Click="Button_Click">Додати</Button>
-        <Button Grid.Row="9" Grid.Column="2" Margin="2" Command="{Binding UpdateBuyer}">Оновити</Button>
+        <Button Grid.Row="9" Grid.Column="1" Margin="2" Command="{Binding AddBuyer}">Додати</Button>
+        <Button Grid.Row="9" Grid.Column="2" Margin="2" Command="{Binding UpdateBuyer}">Редагувати</Button>
         <Button Grid.Row="9" Grid.Column="3" Margin="2" Command="{Binding DeleteBuyer}">Видалити</Button>
 
         <Label Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3">Договори з покупцем</Label>
         <DataGrid
             ItemsSource="{Binding SaleAgreements}" 
-            SelectedItem="{Binding SelectedSA}"
+            SelectedItem="{Binding SelectedSaleAgreement}"
             CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True"
             Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3">
             <DataGrid.Columns>
@@ -106,8 +108,25 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Grid.Row="9" Grid.Column="5" Margin="2" Command="{Binding AddSA}"> Додати </Button>
-        <Button Grid.Row="9" Grid.Column="6" Margin="2" Command="{Binding AddSA}">Оновити</Button>
-        <Button Grid.Row="9" Grid.Column="7" Margin="2" Command="{Binding AddSA}">Видалити</Button>
+        <Button Grid.Row="9" Grid.Column="5" Margin="2" Command="{Binding AddSA}">Додати</Button>
+        <Button Grid.Row="9" Grid.Column="6" Margin="2" Command="{Binding DeleteSA}">Видалити</Button>
+
+        <!-- Other buttons -->
+        <Grid Column="9" Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="5"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="1" Command="{Binding OpenAllSA}">Open all SA</Button>
+            <Button Grid.Row="3" Command="{Binding OpenAllPA}">Open all PA</Button>
+            <Button Grid.Row="5" Command="{Binding OpenTransportWindow}">Transport</Button>
+        </Grid>
     </Grid>
 </Window>

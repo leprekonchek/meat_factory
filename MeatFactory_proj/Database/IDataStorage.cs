@@ -12,8 +12,14 @@ namespace MeatFactory_proj.Database
         List<Component> selectAllComponents();
         List<Provisioner> selectAllProvisioners();
         List<Transport> selectAllTransports();
+        List<PurchaseAgreement> selectAllPurchaseAgreements();
+        List<SaleAgreement> selectAllSaleAgreements();
+
+        // string lists
         List<string> selectAllProductsName();
         List<string> selectAllComponentsName();
+        List<string> selectAllBuyersName();
+        List<string> selectAllProvisionersName();
 
         // user
         bool userExists(String login);
@@ -43,14 +49,14 @@ namespace MeatFactory_proj.Database
         void updateBuyer(Buyer buyer);
         void deleteBuyer(string EDRPOU_buyer);
         List<SaleAgreement> selectSAbyBuyerID(string id);
-        
+
 
         // provisioner
         void insertNewProvisioner(Provisioner provisioner);
         void updateProvisioner(Provisioner provisioner);
         void deleteProvisioner(string EDRPOU_provisioner);
-        List<PurchaseAgreement> selectPAbyProvisionerID(string id); 
-              
+        List<PurchaseAgreement> selectPAbyProvisionerID(string id);
+
         // transport
         void insertNewTransport(Transport transport);
         void updateTransport(Transport transport);
@@ -73,7 +79,7 @@ namespace MeatFactory_proj.Database
         //SaleAgreementAndProduct
         void insertNewSaleAgreementAndProduct(SaleAgreementAndProduct saleAgreement);
         void deleteSaleAgreementAndProduct(string SaleAgreementAndProduct, string Barcode);
-                                           
-                                           
+
+
     }
 }

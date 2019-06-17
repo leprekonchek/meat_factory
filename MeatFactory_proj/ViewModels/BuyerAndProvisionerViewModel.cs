@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Windows;
 using MeatFactory_proj.Models;
 using MeatFactory_proj.Tools;
 using MeatFactory_proj.Tools.Managers;
+using MeatFactory_proj.Views;
 using MeatFactory_proj.Views.Add_edit;
 
 namespace MeatFactory_proj.ViewModels
@@ -33,6 +31,10 @@ namespace MeatFactory_proj.ViewModels
         private RelayCommand<object> _addPurchaseAgreementCommand;
         private RelayCommand<object> _editPurchaseAgreementCommand;
         private RelayCommand<object> _deletePurchaseAgreementCommand;
+        // other
+        private RelayCommand<object> _transport;
+        private RelayCommand<object> _allSA;
+        private RelayCommand<object> _allPA;
 
         #endregion
 
@@ -85,11 +87,11 @@ namespace MeatFactory_proj.ViewModels
             _deleteBuyerCommand ?? (_deleteBuyerCommand = new RelayCommand<object>(o => DeleteBuyerImplementation(), o => CanExecuteBuyer()));
 
         // provisioner commands
-        public RelayCommand<object> AddProvisoner =>
+        public RelayCommand<object> AddProvisioner =>
             _addProvisionerCommand ?? (_addProvisionerCommand = new RelayCommand<object>(o => AddProvisonerImplementation()));
-        public RelayCommand<object> UpdateProvisoner =>
+        public RelayCommand<object> UpdateProvisioner =>
             _editProvisionerCommand ?? (_editProvisionerCommand = new RelayCommand<object>(o => UpdateProvisonerImplementation(), o => CanExecuteProvisioner()));
-        public RelayCommand<object> DeleteProvisoner =>
+        public RelayCommand<object> DeleteProvisioner =>
             _deleteProvisionerCommand ?? (_deleteProvisionerCommand = new RelayCommand<object>(o => DeleteProvisonerImplementation(), o => CanExecuteProvisioner()));
 
         // sale agreement commands
@@ -108,23 +110,38 @@ namespace MeatFactory_proj.ViewModels
         public RelayCommand<object> DeletePA =>
             _deletePurchaseAgreementCommand ?? (_deletePurchaseAgreementCommand = new RelayCommand<object>(o => DeletePAImplementation(), o => CanExecutePA()));
 
+        // side buttons
+        //transport
+        public RelayCommand<object> OpenTransportWindow =>
+            _transport ?? (_transport = new RelayCommand<object>(o => TransportImplementation()));
+        // all sa
+        public RelayCommand<object> OpenAllSA =>
+            _allSA ?? (_allSA = new RelayCommand<object>(o => AllSAImplementation()));
+        // all pa
+        public RelayCommand<object> OpenAllPA =>
+            _allPA ?? (_allPA = new RelayCommand<object>(o => AllPAImplementation()));
+
         #endregion
 
         #region Buyer Implemetnation
 
         private void AddBuyerImplementation()
         {
-
+            StationManager.CurrentBuyer = new Buyer();
+            OpenAddBuyerWindow();
         }
 
         private void UpdateBuyerImplementation()
         {
-
+            StationManager.CurrentBuyer = SelectedBuyer;
+            OpenAddBuyerWindow();
         }
 
         private void DeleteBuyerImplementation()
         {
-
+            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete buyer", MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteBuyer(SelectedBuyer.EDRPOU);
+            UpdateBuyersList();
         }
 
         #endregion
@@ -133,17 +150,21 @@ namespace MeatFactory_proj.ViewModels
 
         private void AddProvisonerImplementation()
         {
-
+            StationManager.CurrentProvisioner = new Provisioner();
+            OpenAddProvisionerWindow();
         }
 
         private void UpdateProvisonerImplementation()
         {
-
+            StationManager.CurrentProvisioner = SelectedProvisioner;
+            OpenAddProvisionerWindow();
         }
 
         private void DeleteProvisonerImplementation()
         {
-
+            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete product", MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteProvisioner(SelectedProvisioner.EDRPOU);
+            UpdateProvisionersList();
         }
 
         #endregion
@@ -152,67 +173,97 @@ namespace MeatFactory_proj.ViewModels
 
         private void AddSAImplementation()
         {
-
+            StationManager.CurrentSaleAgreement = new SaleAgreement();
+            OpenAddSAWindow();
         }
 
         private void UpdateSAImplementation()
         {
-
+            StationManager.CurrentSaleAgreement = SelectedSaleAgreement;
+            OpenAddSAWindow();
         }
 
         private void DeleteSAImplementation()
         {
+            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete product", MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteSaleAgreement(SelectedSaleAgreement.Number);
+            UpdateSaleAgreementsList();
+        }
 
+        private void AllSAImplementation()
+        {
+            AllSA win = new AllSA();
+            win?.ShowDialog();
         }
 
         #endregion
-        
+
         #region PA Implementation
 
         private void AddPAImplementation()
         {
-
+            StationManager.CurrentPurchaseAgreement = new PurchaseAgreement();
+            OpenAddPAWindow();
         }
 
         private void UpdatePAImplementation()
         {
-
+            StationManager.CurrentPurchaseAgreement = SelectedPurchaseAgreement;
+            OpenAddPAWindow();
         }
 
         private void DeletePAImplementation()
         {
+            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete product", MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Yes) StationManager.DataStorage.deletePurchaseAgreement(SelectedPurchaseAgreement.Number);
+            UpdatePurchaseAgreementsList();
+        }
 
+        private void AllPAImplementation()
+        {
+            AllPA win = new AllPA();
+            win?.ShowDialog();
+        }
+
+        #endregion
+
+        #region Transport
+
+        private void TransportImplementation()
+        {
+            AllTransport win = new AllTransport();
+            win?.ShowDialog();
         }
 
         #endregion
 
         #region Open Windows
 
-        private void OpenAddProductWindow()
+        private void OpenAddBuyerWindow()
         {
-            //AddBuyer win = new AddBuyer();
-          //  win.ShowDialog();
+            AddBuyer win = new AddBuyer();
+            win.ShowDialog();
             UpdateBuyersList();
         }
 
-        private void OpenAddComponentWindow()
+        private void OpenAddProvisionerWindow()
         {
-            //AddProvisioner win = new AddProvisioner();
-           // win.ShowDialog();
+            AddProvisioner win = new AddProvisioner();
+            win.ShowDialog();
             UpdateProvisionersList();
         }
 
         private void OpenAddSAWindow()
         {
-            //AddSA win = new AddSA();
-           // win.ShowDialog();
+            AddSA win = new AddSA();
+            win.ShowDialog();
             UpdateBuyersList();
         }
 
         private void OpenAddPAWindow()
         {
-            //AddPA win = new AddPA();
-           // win.ShowDialog();
+            AddPA win = new AddPA();
+            win.ShowDialog();
             UpdateProvisionersList();
         }
 
@@ -254,7 +305,6 @@ namespace MeatFactory_proj.ViewModels
         }
 
         #endregion
-
 
     }
 }

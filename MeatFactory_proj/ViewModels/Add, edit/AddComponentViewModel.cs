@@ -13,7 +13,7 @@ namespace MeatFactory_proj.ViewModels.Add__edit
 
         public Component Component { get; set; }
         private bool AddComponent { get; }
-        
+
         private ICommand _saveCommand;
         private ICommand _cancelCommand;
 
