@@ -74,9 +74,14 @@
     <Compile Include="Tools\Navigation\NavigationModel.cs" />
     <Compile Include="Tools\PropertyChanged.cs" />
     <Compile Include="Tools\RelayCommand.cs" />
+    <Compile Include="ViewModels\Add, edit\AddBuyerViewModel.cs" />
     <Compile Include="ViewModels\Add, edit\AddComponentToRecipeViewModel.cs" />
     <Compile Include="ViewModels\Add, edit\AddComponentViewModel.cs" />
+    <Compile Include="ViewModels\Add, edit\AddPAViewModel.cs" />
     <Compile Include="ViewModels\Add, edit\AddProductViewModel.cs" />
+    <Compile Include="ViewModels\Add, edit\AddProvisionerViewModel.cs" />
+    <Compile Include="ViewModels\Add, edit\AddSAViewModel.cs" />
+    <Compile Include="ViewModels\Add, edit\AddTransportViewModel.cs" />
     <Compile Include="ViewModels\AllPAViewModel.cs" />
     <Compile Include="ViewModels\AllSAViewModel.cs" />
     <Compile Include="ViewModels\AllTransportViewModel.cs" />
@@ -104,6 +109,9 @@
     </Compile>
     <Compile Include="Views\Add,edit\AddSA.xaml.cs">
       <DependentUpon>AddSA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Add,edit\AddTransport.xaml.cs">
+      <DependentUpon>AddTransport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AllPA.xaml.cs">
       <DependentUpon>AllPA.xaml</DependentUpon>
@@ -162,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Add,edit\AddSA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Add,edit\AddTransport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

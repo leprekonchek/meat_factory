@@ -102,8 +102,8 @@ namespace MeatFactory_proj.ViewModels
 
         private void DeleteComponentFromRecipeImplementation()
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure?",
-                $"Delete this component {SelectedComponentRecipe.Name} from this product {SelectedProductRecipe.Name} recipe?",
+            MessageBoxResult result = MessageBox.Show("Ви впевнені?",
+                $"Видалити цю компоненту {SelectedComponentRecipe.Name} з рецепту цього продукту {SelectedProductRecipe.Name}?",
                 MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteComponentFromRecipe(SelectedComponentRecipe.Code, SelectedProductRecipe.Barcode);
             UpdateComponentsRecipeList();
@@ -128,7 +128,7 @@ namespace MeatFactory_proj.ViewModels
 
         private void DeleteProductImplementation()
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete product", MessageBoxButton.YesNoCancel);
+            MessageBoxResult result = MessageBox.Show("Ви впевнені?", "Видалити продукт", MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteProduct(SelectedProduct.Barcode);
             UpdateProductsList();
         }
@@ -152,7 +152,7 @@ namespace MeatFactory_proj.ViewModels
 
         private void DeleteComponentImplementation()
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete component", MessageBoxButton.YesNoCancel);
+            MessageBoxResult result = MessageBox.Show("Ви впевнені?", "Видалити компоненту", MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes) StationManager.DataStorage.deleteProduct(SelectedComponent.Code);
             UpdateComponentsList();
         }

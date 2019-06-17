@@ -19,5 +19,6 @@ namespace MeatFactory_proj.Tools.Managers
         public static Provisioner CurrentProvisioner { get; set; }
         public static SaleAgreement CurrentSaleAgreement { get; set; }
         public static PurchaseAgreement CurrentPurchaseAgreement { get; set; }
+        public static Transport CurrentTransport { get; set; }
     }
 }

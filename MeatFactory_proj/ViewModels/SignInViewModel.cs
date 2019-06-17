@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Documents;
-using System.Windows.Input;
 using MeatFactory_proj.Tools;
 using MeatFactory_proj.Tools.Managers;
-using MeatFactory_proj.Tools.Navigation;
 using MeatFactory_proj.Views;
 
 namespace MeatFactory_proj.ViewModels
@@ -13,8 +10,7 @@ namespace MeatFactory_proj.ViewModels
     {
         public SignInViewModel()
         {
-            Login = "sika";
-            Role = "Адміністрaтор";
+            Login = "buh";
         }
 
         #region Commands
@@ -54,7 +50,6 @@ namespace MeatFactory_proj.ViewModels
                 if (passwordDB == hash_password)
                 {
                     StationManager.CurrentUser = StationManager.DataStorage.getUser(Login);
-                    //NavigationManager.Instance.Navigate(ViewType.ProductsAndComponentsView);
                     Role = StationManager.CurrentUser.Role;
                     switch (Role)
                     {
