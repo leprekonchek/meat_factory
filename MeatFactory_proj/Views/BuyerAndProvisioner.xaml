@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MeatFactory_proj.Views"
         mc:Ignorable="d"
-        Title="BuyerAndProvisioner" Height="650" Width="950">
+        Title="Покупці та постачальники" Height="650" Width="950">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -49,9 +49,9 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Grid.Row="4" Grid.Column="1" Margin="2" Command="{Binding AddProvisioner}">Add</Button>
-        <Button Grid.Row="4" Grid.Column="2" Margin="2" Command="{Binding UpdateProvisioner}">Update</Button>
-        <Button Grid.Row="4" Grid.Column="3" Margin="2" Command="{Binding DeleteProvisioner}">Delete</Button>
+        <Button Grid.Row="4" Grid.Column="1" Margin="2" Command="{Binding AddProvisioner}">Додати</Button>
+        <Button Grid.Row="4" Grid.Column="2" Margin="2" Command="{Binding UpdateProvisioner}">Оновити</Button>
+        <Button Grid.Row="4" Grid.Column="3" Margin="2" Command="{Binding DeleteProvisioner}">Видалити</Button>
 
         <Label Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3">Договори з постачальником</Label>
         <DataGrid ItemsSource="{Binding PurchaseAgreements}" 
@@ -66,9 +66,9 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Grid.Row="4" Grid.Column="5" Margin="2" Command="{Binding AddPA}">Add</Button>
-        <Button Grid.Row="4" Grid.Column="6" Margin="2" Command="{Binding UpdatePA}">Update</Button>
-        <Button Grid.Row="4" Grid.Column="7" Margin="2" Command="{Binding DeletePA}">Delete</Button>
+        <Button Grid.Row="4" Grid.Column="5" Margin="2" Command="{Binding AddPA}">Додати</Button>
+        <Button Grid.Row="4" Grid.Column="6" Margin="2" Command="{Binding UpdatePA}">Оновити</Button>
+        <Button Grid.Row="4" Grid.Column="7" Margin="2" Command="{Binding DeletePA}">Видалити</Button>
 
         <!--Покупці-->
         <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3">Покупці</Label>
@@ -88,9 +88,9 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Grid.Row="9" Grid.Column="1" Margin="2" Command="{Binding AddBuyer}"> Add </Button>
-        <Button Grid.Row="9" Grid.Column="2" Margin="2" Command="{Binding UpdateBuyer}"> Update </Button>
-        <Button Grid.Row="9" Grid.Column="3" Margin="2" Command="{Binding DeleteBuyer}"> Delete </Button>
+        <Button Grid.Row="9" Grid.Column="1" Margin="2" Command="{Binding AddBuyer}" Click="Button_Click">Додати</Button>
+        <Button Grid.Row="9" Grid.Column="2" Margin="2" Command="{Binding UpdateBuyer}">Оновити</Button>
+        <Button Grid.Row="9" Grid.Column="3" Margin="2" Command="{Binding DeleteBuyer}">Видалити</Button>
 
         <Label Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3">Договори з покупцем</Label>
         <DataGrid
@@ -106,8 +106,8 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Grid.Row="9" Grid.Column="5" Margin="2" Command="{Binding AddSA}"> Add </Button>
-        <Button Grid.Row="9" Grid.Column="6" Margin="2" Command="{Binding AddSA}"> Update </Button>
-        <Button Grid.Row="9" Grid.Column="7" Margin="2" Command="{Binding AddSA}"> Delete </Button>
+        <Button Grid.Row="9" Grid.Column="5" Margin="2" Command="{Binding AddSA}"> Додати </Button>
+        <Button Grid.Row="9" Grid.Column="6" Margin="2" Command="{Binding AddSA}">Оновити</Button>
+        <Button Grid.Row="9" Grid.Column="7" Margin="2" Command="{Binding AddSA}">Видалити</Button>
     </Grid>
 </Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MeatFactory_proj.Views.Add_edit"
         mc:Ignorable="d"
-        Title="AddPA" Height="450" Width="800">
+        Title="Додати договір на купівлю" Height="450" Width="800">
     <Grid>
         
     </Grid>

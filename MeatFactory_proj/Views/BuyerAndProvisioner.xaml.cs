@@ -9,5 +9,10 @@ namespace MeatFactory_proj.Views
             InitializeComponent();
             DataContext = new BuyerAndProvisionerViewModel();
         }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }

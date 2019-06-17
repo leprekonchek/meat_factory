@@ -61,7 +61,9 @@
       <DependentUpon>MeatFactoryDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models\PurchaseAgreement.cs" />
+    <Compile Include="Models\PurchaseAgreementAndComponent.cs" />
     <Compile Include="Models\SaleAgreement.cs" />
+    <Compile Include="Models\SaleAgreementAndProduct.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Tools\Managers\NavigationManager.cs" />
     <Compile Include="Tools\Managers\StationManager.cs" />
