@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Documents;
 using System.Windows.Input;
 using MeatFactory_proj.Models;
 using MeatFactory_proj.Tools;
@@ -16,8 +15,7 @@ namespace MeatFactory_proj.ViewModels
         public Product Product { get; set; }
         private bool AddProduct { get; }
         public List<String> MeasureTypes { get; set; }
-
-
+        
         private ICommand _saveCommand;
         private ICommand _cancelCommand;
 
@@ -33,8 +31,10 @@ namespace MeatFactory_proj.ViewModels
         public ICommand CancelCommand => _cancelCommand ?? (_cancelCommand = new RelayCommand<Window>(w => w?.Close()));
         public ICommand SaveCommand => _saveCommand ?? (_saveCommand = new RelayCommand<Window>(SaveImplementation, o => CanExecute()));
 
-        public bool CanExecute() => !String.IsNullOrEmpty(Product.Barcode) && !String.IsNullOrEmpty(Product.Name) && !String.IsNullOrEmpty(Product.Type);
-
+        public bool CanExecute() => !String.IsNullOrEmpty(Product.Barcode) && !String.IsNullOrEmpty(Product.Name) &&
+                                    !String.IsNullOrEmpty(Product.Type) && !String.IsNullOrEmpty(Product.Date) &&
+                                    !String.IsNullOrEmpty(Product.MeasureType);
+        
         private void SaveImplementation(Window win)
         {
             if (AddProduct) StationManager.DataStorage.insertNewProduct(Product);

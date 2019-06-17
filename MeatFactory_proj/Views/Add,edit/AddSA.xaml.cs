@@ -1,27 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using MeatFactory_proj.ViewModels.Add__edit;
 
 namespace MeatFactory_proj.Views.Add_edit
 {
-    /// <summary>
-    /// Interaction logic for AddSA.xaml
-    /// </summary>
-    public partial class AddSA : Window
+    public partial class AddSA
     {
         public AddSA()
         {
             InitializeComponent();
+            DataContext = new AddSAViewModel();
         }
     }
 }

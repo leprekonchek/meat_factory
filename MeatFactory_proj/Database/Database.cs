@@ -285,6 +285,73 @@ namespace MeatFactory_proj.Database
             return transports;
         }
 
+        public List<PurchaseAgreement> selectAllPurchaseAgreements()
+        {
+            List<PurchaseAgreement> listPa = new List<PurchaseAgreement>();
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+                connection.Open();
+
+                SqlCommand query = new SqlCommand("SELECT * FROM PurchaseAgreement", connection);
+
+                SqlDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    PurchaseAgreement pa = new PurchaseAgreement
+                    {
+                        Number = reader.GetString(0),
+                        DateDB = reader.GetDateTime(1),
+                        IsPaid = reader.GetBoolean(2),
+                        EDRPOU = reader.GetString(3)
+                    };
+                    listPa.Add(pa);
+                }
+
+                reader.Close();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+
+            return listPa;
+        }
+
+        public List<SaleAgreement> selectAllSaleAgreements()
+        {
+            List<SaleAgreement> listSa = new List<SaleAgreement>();
+            try
+            {
+                if (connection == null)
+                {
+                    throw new Exception("Connection String is Null");
+                }
+
+                connection.Open();
+
+                SqlCommand query = new SqlCommand("SELECT * FROM SaleAgreement", connection);
+
+                SqlDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    SaleAgreement sa = new SaleAgreement
+                    {
+                        Number = reader.GetString(0),
+                        EDRPOU = reader.GetString(1),
+                        DateDB = reader.GetDateTime(2),
+                        IsPaid = reader.GetBoolean(3)
+                    };
+                    listSa.Add(sa);
+                }
+
+                reader.Close();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+            
+            return listSa;
+        }
+
+        // NAMES FOR LISTS
         public List<string> selectAllProductsName()
         {
             List<string> products = new List<string>();
@@ -332,6 +399,55 @@ namespace MeatFactory_proj.Database
 
             return components;
         }
+
+        public List<string> selectAllBuyersName()
+        {
+            List<string> buyers = new List<string>();
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+                connection.Open();
+
+                SqlCommand query = new SqlCommand("SELECT Buyer_name FROM Buyer", connection);
+
+                SqlDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    buyers.Add(reader.GetString(0));
+                }
+
+                reader.Close();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+
+            return buyers;
+        }
+
+        public List<string> selectAllProvisionersName()
+        {
+            List<string> provisioners = new List<string>();
+            try
+            {
+                if (connection == null) { throw new Exception("Connection String is Null"); }
+                connection.Open();
+
+                SqlCommand query = new SqlCommand("SELECT Provisioner_name FROM Provisioner", connection);
+
+                SqlDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    provisioners.Add(reader.GetString(0));
+                }
+
+                reader.Close();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+            finally { connection?.Close(); }
+
+            return provisioners;
+        }
+
         #endregion
 
         #region User
@@ -736,7 +852,7 @@ namespace MeatFactory_proj.Database
         #endregion
 
         #region Buyer   
-        public void insertNewBuyer (Buyer buyer)
+        public void insertNewBuyer(Buyer buyer)
         {
             try
             {
@@ -847,7 +963,7 @@ namespace MeatFactory_proj.Database
 
         #region Transport
 
-        
+
         public void insertNewTransport(Transport transport)
         {
             try
@@ -875,7 +991,7 @@ namespace MeatFactory_proj.Database
                 SqlCommand query = new SqlCommand("UPDATE Transport " +
                                                   $"SET EDRPOU_buyer = N'{transport.AutoNumber}',  Buyer_name = N'{transport.Type}', Buyer_phone = '{transport.PriceOfPetrol}', " +
                                                   $"Buyer_is_legal = N'{transport.Driver}' " +
-                                                  
+
                                                   $"WHERE Auto_number = N'{transport.AutoNumber}'", connection);
 
                 query.ExecuteNonQuery();
@@ -1010,11 +1126,11 @@ namespace MeatFactory_proj.Database
             catch (Exception e) { MessageBox.Show(e.Message); }
             finally { connection?.Close(); }
         }
-        
+
         #endregion
 
         #region PurchaseAgreementAndComponent
-        
+
         public void insertNewPurchaseAgreementAndComponent(PurchaseAgreementAndComponent purchaseAgreementAndComponent)
         {
             try
@@ -1031,6 +1147,7 @@ namespace MeatFactory_proj.Database
             catch (Exception e) { MessageBox.Show(e.Message); }
             finally { connection?.Close(); }
         }
+
         public void deletePurchaseAgreementAndComponent(string Component_сode, string Purchase_agreement_number)
         {
             try
@@ -1050,7 +1167,7 @@ namespace MeatFactory_proj.Database
         #endregion
 
         #region SaleAgreementAndProduct
-        
+
         public void insertNewSaleAgreementAndProduct(SaleAgreementAndProduct saleAgreementAndProduct)
         {
             try
